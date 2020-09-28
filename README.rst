@@ -29,7 +29,7 @@ In addition, you can learn how to conceptualize this CMS ** step by step ** manu
 
 see documentation on |Darisset|
  
-.. |darisset.site| raw:: html
+.. |Darisset| raw:: html
  
     <a href="https://darissetsite.readthedocs.io/en/latest/"
     target="_blank">Darisset</a>
