@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Start Guide &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="quick-start-guide">
+<h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download-darisset-blog-cms">
+<h2>Download Darisset Blog CMS<a class="headerlink" href="#download-darisset-blog-cms" title="Permalink to this headline">¶</a></h2>
+<p>First, you need to download the BoilerPlate from GitHub.</p>
+</div>
+<div class="section" id="secret-django-key">
+<h2>Secret Django Key<a class="headerlink" href="#secret-django-key" title="Permalink to this headline">¶</a></h2>
+<p>This boilerplate has the <strong>DJANGO_KEY</strong> setting variable hidden.</p>
+<p>You can generate your DJANGO_KEY <a href="http://www.miniwebtool.com/django-secret-key-generator"
+target="_blank">here</a>.</p>
+</div>
+<div class="section" id="project-name">
+<h2>Project Name<a class="headerlink" href="#project-name" title="Permalink to this headline">¶</a></h2>
+<p>This project is named <em>Darisset.site</em>, so if you are using this
+Boilerplate to create your own project, you’ll have to change
+the name in a few places:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>darisset.site</em> <strong>folder</strong> (your top project container)</p></li>
+<li><p><em>darisset_site/darisset</em> <strong>folder</strong> (your project name)</p></li>
+<li><p>virtual environment names: <strong>env</strong> (name them whatever you want)</p></li>
+<li><p>create in virtual environments <strong>.env</strong> files (see section below), you have to change <strong>darisset.settings.development</strong> for your <strong>projectname.settings.development</strong>. Same works for the testing environment.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="virtual-environments-and-settings-files">
+<h2>Virtual environments and Settings Files<a class="headerlink" href="#virtual-environments-and-settings-files" title="Permalink to this headline">¶</a></h2>
+<p>First, you must know your Python 3 path:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ which python3
+</pre></div>
+</div>
+<p>which is something similar to /usr/local/bin/python3.</p>
+<p>Next, create a Development virtual environment with Python 3 installed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ virtualenv env
+$ source env/bin/activate -&gt; on ubuntu
+$ mkdir .env
+</pre></div>
+</div>
+<p>You must add the lines:</p>
+<p>SECRET_KEY=[..]</p>
+<p>EMAIL_HOST=host_your_email
+EMAIL_HOST_USER=your_email
+EMAIL_HOST_PASSWORD=your_email_pasword
+EMAIL_PORT=587
+DEFAULT_FROM_EMAIL=default_your_email</p>
+<p>RECAPTCHA=”recaptcha code”</p>
+<p>with your project name and your own secret key.</p>
+<p>Next, install the packages in each environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="internationalization-and-localization">
+<h2>Internationalization and Localization<a class="headerlink" href="#internationalization-and-localization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
+<p>The default language for this Project is <strong>English</strong>, and we use internatinalization to translate the text into Catalan.</p>
+<p>If you want to change the translation language, or include a new one, you just need to modify the <strong>LANGUAGES</strong> variable in the file <em>settings/base.py</em>. The language codes that define each language can be found <a href="http://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx" target="_blank">here</a>.</p>
+<p>For example, if you want to use German you should include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Indonesia&quot;</span><span class="p">),</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also specify a dialect, like Luxembourg’s German with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Engglish&quot;</span><span class="p">),</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: the name inside the translation function _(“”) is the language name in the default language (English).</p>
+</div>
+<div class="section" id="translation">
+<h3>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
+<p>Go to the terminal, inside the dariset.site folder and create the files to translate with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python manage.py makemessages -l id
+</pre></div>
+</div>
+<p>change the language “id” for your selected language.</p>
+<p>Next, go to the locale folder of your language:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd darisset/locale/ca/LC_MESSAGES
+</pre></div>
+</div>
+<p>where darisset is your project folder. You have to edit the file <em>django.po</em> and translate the strings.</p>
+<p>Once the translation is done, compile your messages with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python manage.py compilemessages -l ca
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="useful-commands">
+<h2>Useful commands<a class="headerlink" href="#useful-commands" title="Permalink to this headline">¶</a></h2>
+<p>A list of all the commands used to run this template:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source env/bin/activate
+$ mkdir .env
+
+
+You must add the lines: ::
+
+SECRET_KEY=[..]
+
+EMAIL_HOST=host_your_email
+EMAIL_HOST_USER=your_email
+EMAIL_HOST_PASSWORD=your_email_pasword
+EMAIL_PORT=587
+DEFAULT_FROM_EMAIL=default_your_email
+
+RECAPTCHA=&quot;recaptcha code&quot;
+
+python manage.py createsuperuser
+
+$ python manage.py runserver
+
+$ python manage.py makemessages -l ca
+$ python manage.py compilemessages -l ca
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/quick_start.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
