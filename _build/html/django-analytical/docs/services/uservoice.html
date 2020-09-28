@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserVoice – user feedback and helpdesk &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="uservoice-user-feedback-and-helpdesk">
+<h1>UserVoice – user feedback and helpdesk<a class="headerlink" href="#uservoice-user-feedback-and-helpdesk" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.uservoice.com/">UserVoice</a> makes it simple for your customers to give, discuss, and vote
+for feedback.  An unobtrusive feedback tab allows visitors to easily
+submit and discuss ideas without  having to sign up for a new account.
+The best ideas are delivered to you based on customer votes.</p>
+<div class="section" id="installation">
+<span id="uservoice-installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the UserVoice integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the UserVoice template tag to your templates.
+This step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#uservoice-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The UserVoice Javascript code is inserted into templates using a
+template tag.  Load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">uservoice</span></code> template tag library and insert
+the <a href="#id3"><span class="problematic" id="id4">:ttag:`uservoice`</span></a> tag.  Because every page that you want to have
+the feedback tab to appear on must have the tag, it is useful to add
+it to your base template.  Insert the tag at the bottom of the HTML
+body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">uservoice</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">uservoice</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="uservoice-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the UserVoice integration, you must first set the
+widget key.</p>
+<div class="section" id="setting-the-widget-key">
+<h3>Setting the widget key<a class="headerlink" href="#setting-the-widget-key" title="Permalink to this headline">¶</a></h3>
+<p>In order to use the feedback widget, you need to configure which widget
+you want to show.  You can find the widget keys in the <em>Channels</em> tab on
+your UserVoice <em>Settings</em> page.  Under the <em>Javascript Widget</em> heading,
+find the Javascript embed code of the widget.  The widget key is the
+alphanumerical string contained in the URL of the script imported by the
+embed code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+
+  <span class="n">UserVoice</span><span class="o">=</span><span class="n">window</span><span class="o">.</span><span class="n">UserVoice</span><span class="o">||</span><span class="p">[];(</span><span class="n">function</span><span class="p">(){</span>
+        <span class="n">var</span> <span class="n">uv</span><span class="o">=</span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span><span class="n">uv</span><span class="o">.</span><span class="n">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span>
+        <span class="n">uv</span><span class="o">.</span><span class="k">async</span><span class="o">=</span><span class="n">true</span><span class="p">;</span><span class="n">uv</span><span class="o">.</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;//widget.uservoice.com/XXXXXXXXXXXXXXXXXXXX.js&#39;</span><span class="p">;</span>
+        <span class="n">var</span> <span class="n">s</span><span class="o">=</span><span class="n">document</span><span class="o">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">parentNode</span><span class="o">.</span><span class="n">insertBefore</span><span class="p">(</span><span class="n">uv</span><span class="p">,</span><span class="n">s</span><span class="p">)})();</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>(The widget key is shown as <code class="docutils literal notranslate"><span class="pre">XXXXXXXXXXXXXXXXXXXX</span></code>.)</p>
+<div class="section" id="the-default-widget">
+<h4>The default widget<a class="headerlink" href="#the-default-widget" title="Permalink to this headline">¶</a></h4>
+<p>Often you will use the same widget throughout your website.  The default
+widget key is configured by setting <code class="xref py py-const docutils literal notranslate"><span class="pre">USERVOICE_WIDGET_KEY</span></code> in
+the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USERVOICE_WIDGET_KEY</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXXXXXXXXXXXXXX&#39;</span>
+</pre></div>
+</div>
+<p>If the setting is present but empty, no widget is shown by default. This
+is useful if you want to set a widget using a template context variable,
+as the setting must be present for the generic <a href="#id5"><span class="problematic" id="id6">:ttag:`analytical.*`</span></a> tags
+to work.</p>
+</div>
+<div class="section" id="widget-options">
+<h4>Widget options<a class="headerlink" href="#widget-options" title="Permalink to this headline">¶</a></h4>
+<p>You can set <code class="xref py py-const docutils literal notranslate"><span class="pre">USERVOICE_WIDGET_OPTIONS</span></code> to customize your widget
+with UserVoice’s options.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See the <a class="reference external" href="https://developer.uservoice.com/docs/widgets/overview/">JS SDK Overview</a> and the <a class="reference external" href="https://developer.uservoice.com/docs/widgets/options/">reference</a> for the details of available options.</p>
+</div>
+<p>For example, to override the default icon style with a tab and on the left,
+you could define:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">USERVOICE_WIDGET_OPTIONS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;trigger_position&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;trigger_style&quot;</span><span class="p">:</span> <span class="s2">&quot;tab&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="per-view-widget">
+<h4>Per-view widget<a class="headerlink" href="#per-view-widget" title="Permalink to this headline">¶</a></h4>
+<p>The widget configuration can be overriden in a view using
+<code class="docutils literal notranslate"><span class="pre">uservoice_widget_options</span></code> template context variable. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;uservoice_widget_options&#39;</span><span class="p">:</span> <span class="s1">&#39;mode&#39;</span><span class="p">:</span> <span class="s1">&#39;satisfaction&#39;</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It’s also possible to set a different widget key for a particular view
+with <code class="docutils literal notranslate"><span class="pre">uservoice_widget_key</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;uservoice_widget_key&#39;</span><span class="p">:</span> <span class="s1">&#39;XXXXXXXXXXXXXXXXXXXX&#39;</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These variable passed in the context overrides the default
+widget configuration.</p>
+</div>
+</div>
+<div class="section" id="using-a-custom-link">
+<span id="uservoice-link"></span><h3>Using a custom link<a class="headerlink" href="#using-a-custom-link" title="Permalink to this headline">¶</a></h3>
+<p>Instead of showing the default feedback icon or tab, you can make the UserVoice
+widget launch when a visitor clicks a link or when some other event
+occurs. As the <a class="reference external" href="https://developer.uservoice.com/docs/widgets/methods/#custom-trigger">documentation describe</a>, simply add the <code class="docutils literal notranslate"><span class="pre">data-uv-trigger</span></code> HTML attribute to the element. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;mailto:questions@yoursite.com&quot;</span> <span class="n">data</span><span class="o">-</span><span class="n">uv</span><span class="o">-</span><span class="n">trigger</span><span class="o">&gt;</span><span class="n">Contact</span> <span class="n">us</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>In order to hidden the default trigger, you should disable it putting
+<code class="docutils literal notranslate"><span class="pre">uservoice_add_trigger</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;uservoice_add_trigger&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">your_template_with_custom_uservoice_link</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to disable the automatic trigger globally, set in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USERVOICE_ADD_TRIGGER</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<div class="section" id="setting-the-widget-key-in-a-context-processor">
+<h4>Setting the widget key in a context processor<a class="headerlink" href="#setting-the-widget-key-in-a-context-processor" title="Permalink to this headline">¶</a></h4>
+<p>You can also set the widget keys in a context processor that you add to
+the <code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>.
+For example, to show a specific widget to logged in users:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uservoice_widget_key</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;uservoice_widget_key&#39;</span><span class="p">:</span> <span class="s1">&#39;XXXXXXXXXXXXXXXXXXXX&#39;</span><span class="p">}</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>The widget key passed in the context variable overrides both the default
+and the per-view widget key.</p>
+</div>
+</div>
+<div class="section" id="identifying-users">
+<h3>Identifying users<a class="headerlink" href="#identifying-users" title="Permalink to this headline">¶</a></h3>
+<p>If your websites identifies visitors, you can pass this information on
+to Uservoice.  By default, the name and email of an authenticated user
+is passed to Uservoice automatically.  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a>.</p>
+<p>You can also send the visitor identity yourself by adding either the
+<code class="docutils literal notranslate"><span class="pre">uservoice_identity</span></code> or the <code class="docutils literal notranslate"><span class="pre">analytical_identity</span></code> variable to
+the template context. (If both are set, the former takes precedence.)
+This should be a dictionary with the desired user traits as its keys.
+Check the <a class="reference external" href="https://developer.uservoice.com/docs/widgets/identify/">documentation on identifying users</a> to see valid traits.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;uservoice_identity&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">user_email</span><span class="p">,</span>
+                                                 <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">username</span> <span class="p">}})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you can derive the identity from the HTTP request, you can also use
+a context processor that you add to the <code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;uservoice_identity&#39;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">email</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+          <span class="n">name</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_full_name</span><span class="p">(),</span>
+          <span class="nb">id</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+          <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;vip&#39;</span><span class="p">,</span>
+          <span class="n">account</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Acme, Co.&#39;</span><span class="p">,</span>
+            <span class="n">monthly_rate</span><span class="p">:</span> <span class="mf">9.99</span><span class="p">,</span>
+            <span class="n">ltv</span><span class="p">:</span> <span class="mf">1495.00</span><span class="p">,</span>
+            <span class="n">plan</span><span class="p">:</span> <span class="s1">&#39;Enhanced&#39;</span>
+          <span class="p">}</span>
+         <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Thanks go to UserVoice for their support with the development of this
+application.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/uservoice.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

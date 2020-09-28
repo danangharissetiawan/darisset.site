@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>django-analytical &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="django-analytical-latest-version">
+<h1>django-analytical <a class="reference external" href="https://pypi.org/project/django-analytical/"><img alt="Latest version on PyPI" src="https://img.shields.io/pypi/v/django-analytical.svg" /></a><a class="headerlink" href="#django-analytical-latest-version" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://travis-ci.org/jazzband/django-analytical"><img alt="Build status" src="https://img.shields.io/travis/jazzband/django-analytical/master.svg" /></a> <a class="reference external" href="https://coveralls.io/r/jazzband/django-analytical"><img alt="Test coverage" src="https://img.shields.io/coveralls/github/jazzband/django-analytical/master.svg" /></a> <a class="reference external" href="https://pypi.org/project/django-analytical/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/django-analytical.svg" /></a> <a class="reference external" href="https://github.com/jazzband/django-analytical/blob/master/LICENSE.txt"><img alt="Software license" src="https://img.shields.io/pypi/l/django-analytical.svg" /></a> <a class="reference external" href="https://gitter.im/jazzband/django-analytical"><img alt="Gitter chat room" src="https://img.shields.io/gitter/room/jazzband/django-analytical.svg" /></a> <a class="reference external" href="https://jazzband.co/"><img alt="Jazzband" src="https://jazzband.co/static/img/badge.svg" /></a></p>
+<p>The django-analytical application integrates analytics services into a
+<a class="reference external" href="http://www.djangoproject.com/">Django</a> project.</p>
+<p>Using an analytics service with a Django project means adding Javascript
+tracking code to the project templates.  Of course, every service has
+its own specific installation instructions.  Furthermore, you need to
+include your unique identifiers, which then end up in the templates.
+Not very nice.</p>
+<p>This application hides the details of the different analytics services
+behind a generic interface, and keeps personal information and
+configuration out of the templates.  Its goal is to make the basic
+set-up very simple, while allowing advanced users to customize tracking.
+Each service is set up as recommended by the services themselves, using
+an asynchronous version of the Javascript code if possible.</p>
+<div class="section" id="currently-supported-services">
+<h2>Currently Supported Services<a class="headerlink" href="#currently-supported-services" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.chartbeat.com/">Chartbeat</a> traffic analysis</p></li>
+<li><p><a class="reference external" href="http://getclickmap.com/">Clickmap</a> visual click tracking</p></li>
+<li><p><a class="reference external" href="http://getclicky.com/">Clicky</a> traffic analysis</p></li>
+<li><p><a class="reference external" href="http://www.crazyegg.com/">Crazy Egg</a> visual click tracking</p></li>
+<li><p><a class="reference external" href="https://developers.facebook.com/docs/facebook-pixel/">Facebook Pixel</a> advertising analytics</p></li>
+<li><p><a class="reference external" href="http://get.gaug.es/">Gaug.es</a> real time web analytics</p></li>
+<li><p><a class="reference external" href="http://www.google.com/analytics/">Google Analytics</a> traffic analysis</p></li>
+<li><p><a class="reference external" href="http://www.gosquared.com/">GoSquared</a> traffic monitoring</p></li>
+<li><p><a class="reference external" href="https://www.hotjar.com/">Hotjar</a> analytics and user feedback</p></li>
+<li><p><a class="reference external" href="http://www.hubspot.com/">HubSpot</a> inbound marketing</p></li>
+<li><p><a class="reference external" href="http://www.intercom.io/">Intercom</a> live chat and support</p></li>
+<li><p><a class="reference external" href="http://www.kissinsights.com/">KISSinsights</a> feedback surveys</p></li>
+<li><p><a class="reference external" href="http://www.kissmetrics.com/">KISSmetrics</a> funnel analysis</p></li>
+<li><p><a class="reference external" href="http://www.mixpanel.com/">Mixpanel</a> event tracking</p></li>
+<li><p><a class="reference external" href="http://www.olark.com/">Olark</a> visitor chat</p></li>
+<li><p><a class="reference external" href="http://www.optimizely.com/">Optimizely</a> A/B testing</p></li>
+<li><p><a class="reference external" href="http://www.performable.com/">Performable</a> web analytics and landing pages</p></li>
+<li><p><a class="reference external" href="https://matomo.org">Matomo (formerly Piwik)</a> open source web analytics</p></li>
+<li><p><a class="reference external" href="http://top.mail.ru/">Rating&#64;Mail.ru</a> web analytics</p></li>
+<li><p><a class="reference external" href="http://www.snapengage.com/">SnapEngage</a> live chat</p></li>
+<li><p><a class="reference external" href="http://www.springmetrics.com/">Spring Metrics</a> conversion tracking</p></li>
+<li><p><a class="reference external" href="http://www.uservoice.com/">UserVoice</a> user feedback and helpdesk</p></li>
+<li><p><a class="reference external" href="http://www.woopra.com/">Woopra</a> web analytics</p></li>
+<li><p><a class="reference external" href="http://metrica.yandex.com">Yandex.Metrica</a> web analytics</p></li>
+</ul>
+</div>
+<div class="section" id="documentation-and-support">
+<h2>Documentation and Support<a class="headerlink" href="#documentation-and-support" title="Permalink to this headline">¶</a></h2>
+<p>The documentation can be found in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory or <a class="reference external" href="https://django-analytical.readthedocs.io/">read
+online</a>.  The source code and issue tracker are generously <a class="reference external" href="https://github.com/jazzband/django-analytical">hosted by
+GitHub</a>.  Bugs should be reported there, whereas for lengthy chats
+and coding support when implementing new service integrations you’re
+welcome to use our <a class="reference external" href="https://gitter.im/jazzband/django-analytical">Gitter chat room</a>.</p>
+</div>
+<div class="section" id="how-to-contribute">
+<h2>How To Contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>If you want to help out with the development of django-analytical, by
+posting detailed bug reports, proposing new features or other analytics
+services to support, or suggesting documentation improvements, use the
+<a class="reference external" href="https://github.com/jazzband/django-analytical/issues">issue tracker</a>.  If you want to get your hands dirty, great!  Clone
+the repository, make changes and place a <a class="reference external" href="https://github.com/jazzband/django-analytical/pulls">pull request</a>.  Creating an
+issue to discuss your plans is useful.</p>
+<p>This is a <a class="reference external" href="https://jazzband.co">Jazzband</a> project.  By contributing you agree to abide by the
+<a class="reference external" href="https://jazzband.co/about/conduct">Contributor Code of Conduct</a> and follow the <a class="reference external" href="https://jazzband.co/about/guidelines">guidelines</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/django-analytical/README.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

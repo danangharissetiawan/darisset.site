@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will show you how to install and configure
+django-analytical for basic tracking, and then briefly touch on two
+common customization issues: visitor identification and custom data
+tracking.</p>
+<p>Suppose your Django website provides information about the IPv4 to IPv6
+transition.  Visitors can discuss their problems and help each other
+make the necessary changes to their network infrastructure.  You want to
+use two different analytics services:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="services/clicky.html"><span class="doc">Clicky</span></a> for detailed traffic analysis</p></li>
+<li><p><a class="reference internal" href="services/crazy_egg.html"><span class="doc">Crazy Egg</span></a> to see where visitors click on
+your pages</p></li>
+</ul>
+<p>At the end of this tutorial, the project will track visitors on both
+Clicky and Crazy Egg, identify authenticated users and add extra
+tracking data to segment mouse clicks on Crazy Egg based on whether
+visitors are using IPv4 or IPv6.</p>
+<div class="section" id="setting-up-basic-tracking">
+<h2>Setting up basic tracking<a class="headerlink" href="#setting-up-basic-tracking" title="Permalink to this headline">¶</a></h2>
+<p>To get started with django-analytical, the package must first be
+installed.  You can download and install the latest stable package from
+the Python Package Index automatically by using <code class="docutils literal notranslate"><span class="pre">easy_install</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ easy_install django-analytical
+</pre></div>
+</div>
+<p>For more ways to install django-analytical, see
+<a class="reference internal" href="install.html#installing-the-package"><span class="std std-ref">Installing the Python package</span></a>.</p>
+<p>After you install django-analytical, you need to add it to the list of
+installed applications in the <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> file of your project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;analytical&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Then you have to add the general-purpose django-analytical template tags
+to your base template:</p>
+<div class="highlight-django notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">load</span> <span class="nv">analytical</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;!DOCTYPE ... &gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_head_top</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        ...</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_head_bottom</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_body_top</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        ...</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_body_bottom</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>Finally, you need to configure the Clicky Site ID and the Crazy Egg
+account number.  Add the following to your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>
+file (replacing the <code class="docutils literal notranslate"><span class="pre">x</span></code>’s with your own codes):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CLICKY_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxx&#39;</span>
+<span class="n">CRAZY_EGG_ACCOUNT_NUMBER</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxx&#39;</span>
+</pre></div>
+</div>
+<p>The analytics services are now installed.  If you run Django with these
+changes, both Clicky and Crazy Egg will be tracking your visitors.</p>
+</div>
+<div class="section" id="identifying-authenticated-users">
+<h2>Identifying authenticated users<a class="headerlink" href="#identifying-authenticated-users" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that when your visitors post questions on IPv6 or tell others
+about their experience with the transition, they first log in through
+the standard Django authentication system.  Clicky can identify and
+track individual visitors and you want to use this feature.</p>
+<p>If django-analytical template tags detect that the current user is
+authenticated, they will automatically include code to send the username
+to services that support this feature.  This only works if the template
+context has the current user in the <code class="docutils literal notranslate"><span class="pre">user</span></code> or <code class="docutils literal notranslate"><span class="pre">request.user</span></code> context
+variable.  If you use a <code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> to
+render templates (which is recommended anyway) and have the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.context_processors.auth</span></code> context processor
+in the <code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> setting (which is default),
+then this identification works without having to make any changes.</p>
+<p>For more detailed information on automatic identification, and how to
+disable or override it, see <a class="reference internal" href="features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a>.</p>
+</div>
+<div class="section" id="adding-custom-tracking-data">
+<h2>Adding custom tracking data<a class="headerlink" href="#adding-custom-tracking-data" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that you think that visitors who already have IPv6 use the
+website in a different way from those still on IPv4.  You want to test
+this hypothesis by segmenting the Crazy Egg heatmaps based on the IP
+protocol version.</p>
+<p>In order to filter on protocol version in Crazy Egg, you need to
+include the visitor IP protocol version in the Crazy Egg tracking code.
+The easiest way to do this is by using a context processor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">track_ip_proto</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">addr</span><span class="p">:</span>
+        <span class="n">addr</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
+        <span class="n">proto</span> <span class="o">=</span> <span class="s1">&#39;ipv6&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">proto</span> <span class="o">=</span> <span class="s1">&#39;ipv4&#39;</span>  <span class="c1"># assume IPv4 if no information</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;crazy_egg_var1&#39;</span><span class="p">:</span> <span class="n">proto</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Use a <code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> when rendering templates
+and add the <code class="docutils literal notranslate"><span class="pre">'track_ip_proto'</span></code> to <code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code>.
+In Crazy Egg, you can now select <em>User Var1</em> in the overlay or confetti
+views to see whether visitors using IPv4 behave differently from those
+using IPv6.</p>
+<hr class="docutils" />
+<p>This concludes the tutorial.  For information about setting up,
+configuring and customizing the different analytics services, see
+<a class="reference internal" href="features.html"><span class="doc">Features and customization</span></a> and <a class="reference internal" href="services.html"><span class="doc">Services</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/django-analytical/docs/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{% comment %} {% extends "base.html" %} {% endcomment %}
+
+{% load i18n %}
+{% load account %}
+
+{% block contents %}
+{% user_display user as user_display %}
+<div class="wrapper text-center ">
+
+<h3 class="h3 text-dark mb-2" id="head_banner">{% trans "Already Logged in!" %}</h3>
+<p class="forgot_password_info" >{% trans "You are already logged in as" %} <h3 class=" text-danger"> {{ user_display }}</h3>.</p>
+<a class="btn btn-outline-danger" id="custom_logout_no" href="{% url 'home' %}">{% trans "Back to Home" %}</a>
+
+</div>
+
+{% endblock %}

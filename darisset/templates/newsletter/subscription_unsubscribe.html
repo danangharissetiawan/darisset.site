@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Newsletter unsubscribe" %}{% endblock head_title %}
+
+{% block contents %}
+    <h3 class="text-dark">{% trans "Newsletter unsubscribe" %} {{ newsletter.title }}</h3>
+
+    {% if error %}
+        <p>{% trans "Due to a technical error we were not able to submit your confirmation email. This could be because your email address is invalid." %}</p>
+
+        <p>{% trans "If the error persists, please don't hesitate to contact us at the following email address:" %} <a href="mailto:administrator@darisset.site">administrator@darisset.site</a></p>
+    {% else %}
+        <form class="col-lg-8" enctype="multipart/form-data" method="post" action=".">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <p><input class="btn btn-secondary" id="id_submit" name="submit" value="{% trans "Unsubscribe" %}" type="submit" /></p>
+        </form>
+    {% endif %}
+{% endblock contents %}

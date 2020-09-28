@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block head_title %}
+{{title}}
+{% endblock head_title %}
+
+
+{% block contents %}
+ <div class="row">
+  <div class="col-lg-8">
+    <div class="section-title">
+      <span class="caption d-block small">{% trans "Categories" %}</span>
+      <h2>{% blocktrans %}{{title}}{% endblocktrans %}</h2>
+    </div>
+    {% if posts.count > 0 %}
+    {% for post in posts %}
+    <div class="single-blog-post post-style-4 d-flex align-items-center">
+      <div class="post-thumbnail">
+        <img src="{{post.thumbnail.url}}" alt="{{post.thumbnail}}">
+      </div>
+      <div class="post-content">
+        <a href="{% url 'blog:detail' post.slug %}" class="headline">
+          <h6>{{post.title}}</h6>
+        </a>
+        <p>{{post.body|truncatewords:"17"|safe}}</p>
+        <div class="post-meta">
+          <span class="d-block"><a href="{% url 'blog:penulis' post.user %}">{{post.user}}</a> {% trans "in" %} <a href="{% url 'blog:category' post.category %}">{{post.category}}</a></span>
+          <span class="date-read">{{post.publish|date:"d M, Y"}} <span class="mx-1">&bullet;</span>
+          {% if request.user.profile in post.bookmark.all %}
+          <a href="{% url 'blog:bookmark' post.id %}"><span class="icon-bookmark-o ml-1 bookmark-sm-active"></span></a>
+          {% else %}
+          <a href="{% url 'blog:bookmark' post.id %}"><span class="icon-bookmark-o ml-1 bookmark-sm"></span></a>
+          {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>{% trans "No posts yet" %}</h1>
+    {% endif %}
+
+  {% if is_paginated %}
+    <nav class="blog-pagination justify-content-center d-flex">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a href="?page={{page_obj.previous_page_number}}" class="page-link" aria-label="Previous">
+            <span aria-hidden="true">
+              <span class="icon-chevron-left"></span>
+            </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item active">
+          <a href="#" class="page-link disble" aria-label="Previous">
+            <span aria-hidden="true">
+              <span class="icon-chevron-left"></span>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+        
+        {% for page in paginator.page_range %}
+        {% if page is page_obj.number %}
+        <li class="page-item active">
+          <a href="#" class="page-link">{{page}}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a href="?page={{page}}" class="page-link">{{page}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a href="?page={{page_obj.next_page_number}}" class="page-link" aria-label="Next">
+            <span aria-hidden="true">
+              <span class="icon-chevron-right"></span>
+            </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item active">
+          <a href="#" class="page-link disable" aria-label="Next">
+            <span aria-hidden="true">
+              <span class="icon-chevron-right"></span>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+  {% endif %}
+  </div>
+</div>
+{% endblock contents %}

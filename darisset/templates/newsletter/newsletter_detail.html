@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Newsletter detail" %}{% endblock head_title %}
+
+{% block contents %}
+<blockquote class="blockquote">
+    <p class="mb-0">{% trans "Newsletter" %} {{ object.title }}</p>
+    <footer class="blockquote-footer"> <cite title="Source Title"><a href="{% url "newsletter_subscribe_request" object.slug %}">{% trans "Subscribe" %}</a></cite></footer>
+    <footer class="blockquote-footer"> <cite title="Source Title"><a href="{% url "newsletter_update_request" object.slug %}">{% trans "Update" %}</a></cite></footer>
+    <footer class="blockquote-footer"> <cite title="Source Title"><a href="{% url "newsletter_unsubscribe_request" object.slug %}">{% trans "Unsubscribe" %}</a></cite></footer>
+    <footer class="blockquote-footer"> <cite title="Source Title"><a href="{% url "newsletter_archive" object.slug %}">{% trans "Archive" %}</a></footer>
+    <p><a href="../">{% trans "Back to list" %}</a></p>
+</blockquote>
+{% endblock contents %}

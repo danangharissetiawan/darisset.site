@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KISSinsights – feedback surveys &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="kissinsights-feedback-surveys">
+<h1>KISSinsights – feedback surveys<a class="headerlink" href="#kissinsights-feedback-surveys" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.kissinsights.com/">KISSinsights</a> provides unobtrusive surveys that pop up from the bottom
+right-hand corner of your website.  Asking specific questions gets you
+the targeted, actionable feedback you need to make your site better.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the KISSinsights integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the KISSinsights template tag to your templates.
+This step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#kiss-insights-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The KISSinsights survey code is inserted into templates using a template
+tag.  Load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">kiss_insights</span></code> template tag library and insert the
+<a href="#id3"><span class="problematic" id="id4">:ttag:`kiss_insights`</span></a> tag.  Because every page that you want to track
+must have the tag, it is useful to add it to your base template.  Insert
+the tag at the top of the HTML body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">kiss_insights</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">kiss_insights</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="kiss-insights-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the KISSinsights integration, you must first set your
+account number and site code.</p>
+<div class="section" id="setting-the-account-number-and-site-code">
+<span id="kiss-insights-account-number"></span><h3>Setting the account number and site code<a class="headerlink" href="#setting-the-account-number-and-site-code" title="Permalink to this headline">¶</a></h3>
+<p>In order to install the survey code, you need to set your KISSinsights
+account number and website code.  The <a href="#id5"><span class="problematic" id="id6">:ttag:`kiss_insights`</span></a> tag will
+include it in the rendered Javascript code.  You can find the account
+number and website code by visiting the code installation page of the
+website you want to place the surveys on.  You will see some HTML code
+with a Javascript tag with a <code class="docutils literal notranslate"><span class="pre">src</span></code> attribute containing
+<code class="docutils literal notranslate"><span class="pre">//s3.amazonaws.com/ki.js/XXXXX/YYY.js</span></code>.  Here <code class="docutils literal notranslate"><span class="pre">XXXXX</span></code> is the
+account number and <code class="docutils literal notranslate"><span class="pre">YYY</span></code> the website code.  Set
+<code class="xref py py-const docutils literal notranslate"><span class="pre">KISS_INSIGHTS_ACCOUNT_NUMBER</span></code> and
+<code class="xref py py-const docutils literal notranslate"><span class="pre">KISS_INSIGHTS_WEBSITE_CODE</span></code> in the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>
+file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KISSINSIGHTS_ACCOUNT_NUMBER</span> <span class="o">=</span> <span class="s1">&#39;XXXXX&#39;</span>
+<span class="n">KISSINSIGHTS_SITE_CODE</span> <span class="o">=</span> <span class="s1">&#39;XXX&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set the account number and website code, the survey code
+will not be rendered.</p>
+</div>
+<div class="section" id="kiss-insights-identity-user">
+<span id="identifying-authenticated-users"></span><h3>Identifying authenticated users<a class="headerlink" href="#kiss-insights-identity-user" title="Permalink to this headline">¶</a></h3>
+<p>If your websites identifies visitors, you can pass this information on
+to KISSinsights so that you can tie survey submissions to customers.
+By default, the username of an authenticated user is passed to
+KISSinsights automatically.  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a>.</p>
+<p>You can also send the visitor identity yourself by adding either the
+<code class="docutils literal notranslate"><span class="pre">kiss_insights_identity</span></code> or the <code class="docutils literal notranslate"><span class="pre">analytical_identity</span></code> variable to
+the template context.  If both variables are set, the former takes
+precedence. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;kiss_insights_identity&#39;</span><span class="p">:</span> <span class="n">identity</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you can derive the identity from the HTTP request, you can also use
+a context processor that you add to the
+<code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;kiss_insights_identity&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Just remember that if you set the same context variable in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> constructor and in a
+context processor, the latter clobbers the former.</p>
+</div>
+<div class="section" id="showing-a-specific-survey">
+<span id="kiss-insights-show-survey"></span><h3>Showing a specific survey<a class="headerlink" href="#showing-a-specific-survey" title="Permalink to this headline">¶</a></h3>
+<p>KISSinsights can also be told to show a specific survey.  You can let
+the <a href="#id7"><span class="problematic" id="id8">:ttag:`kiss_insights`</span></a> tag include the code to select a survey by
+passing the survey ID to the template in the
+<code class="docutils literal notranslate"><span class="pre">kiss_insights_show_survey</span></code> context variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;kiss_insights_show_survey&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For information about how to find the survey ID, see the explanation
+on <a class="reference external" href="http://www.kissinsights.com/help#customer-trigger">“How can I show a survey after a custom trigger condition?”</a> on the
+KISSinsights help page.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/kiss_insights.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KISSmetrics – funnel analysis &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="kissmetrics-funnel-analysis">
+<h1>KISSmetrics – funnel analysis<a class="headerlink" href="#kissmetrics-funnel-analysis" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.kissmetrics.com/">KISSmetrics</a> is an easy to implement analytics solution that provides a
+powerful visual representation of your customer lifecycle.  Discover how
+many visitors go from your landing page to pricing to sign up, and how
+many drop out at each stage.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the KISSmetrics integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the KISSmetrics template tag to your templates.
+This step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#kiss-metrics-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The KISSmetrics Javascript code is inserted into templates using a
+template tag.  Load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">kiss_metrics</span></code> template tag library and
+insert the <a href="#id3"><span class="problematic" id="id4">:ttag:`kiss_metrics`</span></a> tag.  Because every page that you want
+to track must have the tag, it is useful to add it to your base
+template.  Insert the tag at the top of the HTML head:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">kiss_metrics</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">kiss_metrics</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="kiss-metrics-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the KISSmetrics integration, you must first set your
+API key.</p>
+<div class="section" id="setting-the-api-key">
+<span id="kiss-metrics-api-key"></span><h3>Setting the API key<a class="headerlink" href="#setting-the-api-key" title="Permalink to this headline">¶</a></h3>
+<p>Every website you track events for with KISSmetrics gets its own API
+key, and the <a href="#id5"><span class="problematic" id="id6">:ttag:`kiss_metrics`</span></a> tag will include it in the rendered
+Javascript code.  You can find the website API key by visiting the
+website <em>Product center</em> on your KISSmetrics dashboard.  Set
+<code class="xref py py-const docutils literal notranslate"><span class="pre">KISS_METRICS_API_KEY</span></code> in the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KISS_METRICS_API_KEY</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set an API key, the tracking code will not be rendered.</p>
+</div>
+<div class="section" id="internal-ip-addresses">
+<span id="kiss-metrics-internal-ips"></span><h3>Internal IP addresses<a class="headerlink" href="#internal-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Usually you do not want to track clicks from your development or
+internal IP addresses.  By default, if the tags detect that the client
+comes from any address in the <code class="xref py py-const docutils literal notranslate"><span class="pre">KISS_METRICS_INTERNAL_IPS</span></code>
+setting, the tracking code is commented out.  It takes the value of
+<a class="reference internal" href="../settings.html#ANALYTICAL_INTERNAL_IPS" title="ANALYTICAL_INTERNAL_IPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">ANALYTICAL_INTERNAL_IPS</span></code></a> by default (which in turn is
+<code class="xref py py-const docutils literal notranslate"><span class="pre">INTERNAL_IPS</span></code> by default).  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a> for
+important information about detecting the visitor IP address.</p>
+</div>
+<div class="section" id="kiss-metrics-identify-user">
+<span id="identifying-users"></span><h3>Identifying users<a class="headerlink" href="#kiss-metrics-identify-user" title="Permalink to this headline">¶</a></h3>
+<p>If your websites identifies visitors, you can pass this information on
+to KISSmetrics so that you can tie events to users.  By default, the
+username of an authenticated user is passed to KISSmetrics
+automatically.  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a>.</p>
+<p>You can also send the visitor identity yourself by adding either the
+<code class="docutils literal notranslate"><span class="pre">kiss_metrics_identity</span></code> or the <code class="docutils literal notranslate"><span class="pre">analytical_identity</span></code> variable to the
+template context.  If both variables are set, the former takes
+precedence. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;kiss_metrics_identity&#39;</span><span class="p">:</span> <span class="n">identity</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you can derive the identity from the HTTP request, you can also use
+a context processor that you add to the
+<code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;kiss_metrics_identity&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Just remember that if you set the same context variable in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> constructor and in a
+context processor, the latter clobbers the former.</p>
+</div>
+<div class="section" id="alias">
+<span id="kiss-metrics-alias"></span><h3>Alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h3>
+<p>Alias is used to associate one identity with another.
+This most likely will occur if a user is not signed in yet,
+you assign them an anonymous identity and record activity for them
+and they later sign in and you get a named identity.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span>
+    <span class="s1">&#39;kiss_metrics_alias&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;my_registered@email&#39;</span> <span class="p">:</span> <span class="s1">&#39;my_user_id&#39;</span><span class="p">},</span>
+<span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output script tag will then include the corresponding properties as
+documented in the <a class="reference external" href="http://support.kissmetrics.com/apis/common-methods#alias">KISSmetrics alias API</a> docs.</p>
+</div>
+<div class="section" id="recording-events">
+<h3>Recording events<a class="headerlink" href="#recording-events" title="Permalink to this headline">¶</a></h3>
+<p>You may tell KISSmetrics about an event by setting a variable in the context.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span>
+    <span class="s1">&#39;kiss_metrics_event&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Signed Up&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Plan&#39;</span> <span class="p">:</span> <span class="s1">&#39;Pro&#39;</span><span class="p">,</span> <span class="s1">&#39;Amount&#39;</span> <span class="p">:</span> <span class="mf">9.99</span><span class="p">}],</span>
+<span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output script tag will then include the corresponding Javascript event as
+documented in the <a class="reference external" href="http://support.kissmetrics.com/apis/common-methods#set">KISSmetrics record API</a> docs.</p>
+</div>
+<div class="section" id="recording-properties">
+<span id="kiss-metrics-properties"></span><h3>Recording properties<a class="headerlink" href="#recording-properties" title="Permalink to this headline">¶</a></h3>
+<p>You may also set KISSmetrics properties without a corresponding event.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span>
+    <span class="s1">&#39;kiss_metrics_properties&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">},</span>
+<span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output script tag will then include the corresponding properties as
+documented in the <a class="reference external" href="http://support.kissmetrics.com/apis/common-methods#record">KISSmetrics set API</a> docs.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/kiss_metrics.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

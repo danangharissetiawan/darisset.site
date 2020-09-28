@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chartbeat – traffic analysis &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="chartbeat-traffic-analysis">
+<h1>Chartbeat – traffic analysis<a class="headerlink" href="#chartbeat-traffic-analysis" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.chartbeat.com/">Chartbeat</a> provides real-time analytics to websites and blogs.  It shows
+visitors, load times, and referring sites on a minute-by-minute basis.
+The service also provides alerts the second your website crashes or
+slows to a crawl.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the Chartbeat integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the Chartbeat template tags to your templates. This
+step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#chartbeat-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The Chartbeat tracking code is inserted into templates using template
+tags.  At the top of the template, load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">chartbeat</span></code> template
+tag library.  Then insert the <a href="#id3"><span class="problematic" id="id4">:ttag:`chartbeat_top`</span></a> tag at the top of
+the head section, and the <a href="#id5"><span class="problematic" id="id6">:ttag:`chartbeat_bottom`</span></a> tag at the bottom of
+the body section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">chartbeat</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">chartbeat_top</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">...</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">chartbeat_bottom</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Because these tags are used to measure page loading time, it is
+important to place them as close as possible to the start and end of the
+document.</p>
+</div>
+<div class="section" id="configuration">
+<span id="chartbeat-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the Chartbeat integration, you must first set your
+User ID.</p>
+<div class="section" id="setting-the-user-id">
+<span id="chartbeat-user-id"></span><h3>Setting the User ID<a class="headerlink" href="#setting-the-user-id" title="Permalink to this headline">¶</a></h3>
+<p>Your Chartbeat account has a unique User ID.  You can find your User ID
+by visiting the Chartbeat <a class="reference external" href="http://chartbeat.com/code/">Add New Site</a> page.  The second code snippet
+contains a line that looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">_sf_async_config</span><span class="o">=</span><span class="p">{</span><span class="n">uid</span><span class="p">:</span><span class="n">XXXXX</span><span class="p">,</span><span class="n">domain</span><span class="p">:</span><span class="s2">&quot;YYYYYYYYYY&quot;</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">XXXXX</span></code> is your User ID.  Set <code class="xref py py-const docutils literal notranslate"><span class="pre">CHARTBEAT_USER_ID</span></code> in the
+project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHARTBEAT_USER_ID</span> <span class="o">=</span> <span class="s1">&#39;XXXXX&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set a User ID, the tracking code will not be rendered.</p>
+</div>
+<div class="section" id="internal-ip-addresses">
+<span id="chartbeat-internal-ips"></span><h3>Internal IP addresses<a class="headerlink" href="#internal-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Usually you do not want to track clicks from your development or
+internal IP addresses.  By default, if the tags detect that the client
+comes from any address in the <code class="xref py py-const docutils literal notranslate"><span class="pre">CHARTBEAT_INTERNAL_IPS</span></code> setting,
+the tracking code is commented out.  It takes the value of
+<a class="reference internal" href="../settings.html#ANALYTICAL_INTERNAL_IPS" title="ANALYTICAL_INTERNAL_IPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">ANALYTICAL_INTERNAL_IPS</span></code></a> by default (which in turn is
+<code class="xref py py-const docutils literal notranslate"><span class="pre">INTERNAL_IPS</span></code> by default).  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a> for
+important information about detecting the visitor IP address.</p>
+</div>
+<div class="section" id="setting-the-domain">
+<span id="chartbeat-domain"></span><h3>Setting the domain<a class="headerlink" href="#setting-the-domain" title="Permalink to this headline">¶</a></h3>
+<p>The Javascript tracking code can send the website domain to Chartbeat.
+If you use multiple subdomains this enables you to treat them as one
+website in Chartbeat.  If your project uses the sites framework, the
+domain name of the current <code class="xref py py-class docutils literal notranslate"><span class="pre">Site</span></code>
+will be passed to Chartbeat automatically.  You can modify this behavior
+using the <code class="xref py py-const docutils literal notranslate"><span class="pre">CHARTBEAT_AUTO_DOMAIN</span></code> setting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHARTBEAT_AUTO_DOMAIN</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Alternatively, you set the domain through the <code class="docutils literal notranslate"><span class="pre">chartbeat_domain</span></code>
+context variable when you render the template:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;chartbeat_domain&#39;</span><span class="p">:</span> <span class="s1">&#39;example.com&#39;</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is annoying to do this for every view, so you may want to set it in
+a context processor that you add to the
+<code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chartbeat</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;chartbeat_domain&#39;</span><span class="p">:</span> <span class="s1">&#39;example.com&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The context domain overrides the domain from the current site.  If no
+domain is set, either explicitly or implicitly through the sites
+framework, then no domain is sent, and Chartbeat will detect the domain
+name from the URL.  If your website uses just one domain, this will work
+just fine.</p>
+<hr class="docutils" />
+<p>Thanks go to Chartbeat for their support with the development of this
+application.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/chartbeat.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

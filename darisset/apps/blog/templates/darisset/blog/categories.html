@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load hitcount_tags %}
+
+{% block head_title %}
+{% blocktrans %}{{title}}{% endblocktrans %}
+{% endblock head_title %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/clock.css' %}">
+{% endblock extra_styles %}
+
+
+{% block contents %}
+ <div class="row">
+  <div class="col-lg-8">
+    <div class="section-title">
+      <h2>{% blocktrans %}{{title}}{% endblocktrans %}</h2>
+    </div>
+    {% if posts.count > 0 %}
+    {% for post in posts %}
+    <div class="single-blog-post post-style-4 d-flex align-items-center">
+      <div class="post-thumbnail">
+        <img src="{{post.thumbnail.url}}" alt="{{post.thumbnail}}">
+      </div>
+      <div class="post-content">
+        <a href="{% url 'blog:detail' post.slug %}" class="headline">
+          <h2>{{post.title}}</h2>
+        </a>
+        <p>{{post.body|truncatewords:"30"|safe}}</p>
+        <div class="post-meta">
+          <span class="d-block"><a href="{% url 'blog:penulis' post.user %}">{{post.user}}</a> {% trans "in" %} <a href="{% url 'blog:category' post.category %}">{{post.category}}</a></span>
+          <span class="date-read">{{post.publish|date:"d M, Y"}} <span class="mx-1">&bullet;</span>
+          {% if request.user.profile in post.bookmark.all %}
+          <a href="{% url 'blog:bookmark' post.id %}"><span class="icon-bookmark-o ml-1 bookmark-sm-active"></span></a>
+          {% else %}
+          <a href="{% url 'blog:bookmark' post.id %}"><span class="icon-bookmark-o ml-1 bookmark-sm"></span></a>
+          {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>{% trans "No posts yet" %}</h1>
+    {% endif %}
+
+    {% if is_paginated %}
+    <nav class="blog-pagination justify-content-center d-flex">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a href="?page={{page_obj.previous_page_number}}" class="page-link" aria-label="Previous">
+            <span aria-hidden="true">
+              <span class="icon-chevron-left"></span>
+            </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item active">
+          <a href="#" class="page-link disble" aria-label="Previous">
+            <span aria-hidden="true">
+              <span class="icon-chevron-left"></span>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+        
+        {% for page in paginator.page_range %}
+        {% if page is page_obj.number %}
+        <li class="page-item active">
+          <a href="#" class="page-link">{{page}}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a href="?page={{page}}" class="page-link">{{page}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a href="?page={{page_obj.next_page_number}}" class="page-link" aria-label="Next">
+            <span aria-hidden="true">
+              <span class="icon-chevron-right"></span>
+            </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item active">
+          <a href="#" class="page-link disable" aria-label="Next">
+            <span aria-hidden="true">
+              <span class="icon-chevron-right"></span>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+  
+  <div class="col-lg-4">
+    <div class="sticky-top" style="z-index: 0;">
+    {% if title != "Popular Post" %}
+      <div class="section-title mt-5">
+        <h2>{% trans "Popular Posts" %}</h2>
+      </div>
+      {% if popular_posts.count > 0 %}
+      {% for popular in popular_posts %}
+      <div class="trend-entry d-flex">
+        <div class="number align-self-start">0{{forloop.counter}}</div>
+        <div class="trend-contents">
+          <h2 style="font-size: 16px;"><a href="{% url 'blog:detail' popular.slug %}">{{popular.title}}</a></h2>
+          <div class="post-meta">
+            <span class="d-block"><a href="{% url 'blog:penulis' popular.user %}">{{popular.user}}</a> {% trans "in" %} <a href="{% url 'blog:category' popular.category %}">{{popular.category}}</a></span>
+            <span class="date-read">{{popular.publish|date:"d M, Y"}} <span class="mx-1">&bullet;</span> 
+            {% if request.user.profile in popular.bookmark.all %}
+              <a href="{% url 'blog:bookmark' popular.id %}"><span class="icon-bookmark-o ml-1 bookmark-sm-active"></span></a>
+            {% else %}
+              <a href="{% url 'blog:bookmark' popular.id %}"><span class="icon-bookmark-o ml-1 bookmark-sm"></span></a>
+            {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <h2>{% trans "No posts yet" %}</h2>
+      {% endif %}
+      <p>
+        <a href="{% url 'blog:popular' %}" class="more">{% trans "See All Popular" %} <span class="icon-keyboard_arrow_right"></span></a>
+      </p>
+    {% endif %}
+      <div style="margin-bottom: 50px;">
+        <div class="clock m-auto">
+          <div class="hour">
+            <div class="hr" id="hr"></div>
+          </div>
+          <div class="min">
+            <div class="mn" id="mn"></div>
+          </div>
+          <div class="sec">
+            <div class="sc" id="sc"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+{% endblock contents %}
+      
+  <!-- loader -->
+  {% block loader %}
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#7fff00" /></svg></div>
+  {% endblock loader %}
+
+{% block extra_scripts %}
+<script src="{% static 'js/clock.js' %}"></script>
+{% endblock extra_scripts %}

@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installation and configuration &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="installation-and-configuration">
+<h1>Installation and configuration<a class="headerlink" href="#installation-and-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Integration of your analytics service is very simple.  There are four
+steps: installing the package, adding it to the list of installed Django
+applications, adding the template tags to your base template, and
+configuring the services you use in the project settings.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#installing-the-python-package">Installing the Python package</a></p></li>
+<li><p><a class="reference internal" href="#installing-the-django-application">Installing the Django application</a></p></li>
+<li><p><a class="reference internal" href="#adding-the-template-tags-to-the-base-template">Adding the template tags to the base template</a></p></li>
+<li><p><a class="reference internal" href="#enabling-the-services">Enabling the services</a></p></li>
+</ol>
+<div class="section" id="installing-the-python-package">
+<span id="installing-the-package"></span><h2>Installing the Python package<a class="headerlink" href="#installing-the-python-package" title="Permalink to this headline">¶</a></h2>
+<p>To install django-analytical the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> package must be added to
+the Python path.  You can install it directly from PyPI using
+<code class="docutils literal notranslate"><span class="pre">easy_install</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ easy_install django-analytical
+</pre></div>
+</div>
+<p>You can also install directly from source.  Download either the latest
+stable version from <a class="reference external" href="http://pypi.python.org/pypi/django-analytical/">PyPI</a> or any release from <a class="reference external" href="http://github.com/jazzband/django-analytical">GitHub</a>, or use Git to
+get the development code:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/jazzband/django-analytical.git
+</pre></div>
+</div>
+<p>Then install the package by running the setup script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> django-analytical
+$ python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-the-django-application">
+<span id="installing-the-application"></span><h2>Installing the Django application<a class="headerlink" href="#installing-the-django-application" title="Permalink to this headline">¶</a></h2>
+<p>After you installed django-analytical, add the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> Django
+application to the list of installed applications in the <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>
+file of your project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;analytical&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-the-template-tags-to-the-base-template">
+<span id="adding-the-template-tags"></span><h2>Adding the template tags to the base template<a class="headerlink" href="#adding-the-template-tags-to-the-base-template" title="Permalink to this headline">¶</a></h2>
+<p>Because every analytics service uses own specific Javascript code that
+should be added to the top or bottom of either the head or body of the
+HTML page, django-analytical provides four general-purpose template tags
+that will render the code needed for the services you are using.  Your
+base template should look like this:</p>
+<div class="highlight-django notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">load</span> <span class="nv">analytical</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;!DOCTYPE ... &gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_head_top</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        ...</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_head_bottom</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_body_top</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">        ...</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">analytical_body_bottom</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>Instead of using the generic tags, you can also just use tags specific
+for the analytics service(s) you are using.  See <a class="reference internal" href="services.html#services"><span class="std std-ref">Services</span></a> for
+documentation on using individual services.</p>
+</div>
+<div class="section" id="enabling-the-services">
+<span id="enabling-services"></span><h2>Enabling the services<a class="headerlink" href="#enabling-the-services" title="Permalink to this headline">¶</a></h2>
+<p>Without configuration, the template tags all render the empty string.
+Services are configured in the project <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> file.  The
+settings required to enable each service are listed here:</p>
+<ul>
+<li><p><a class="reference internal" href="services/chartbeat.html"><span class="doc">Chartbeat</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHARTBEAT_USER_ID</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/clickmap.html"><span class="doc">Clickmap</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CLICKMAP_TRACKER_CODE</span> <span class="o">=</span> <span class="s1">&#39;12345678....912&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/clicky.html"><span class="doc">Clicky</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CLICKY_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;12345678&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/crazy_egg.html"><span class="doc">Crazy Egg</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CRAZY_EGG_ACCOUNT_NUMBER</span> <span class="o">=</span> <span class="s1">&#39;12345678&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/facebook_pixel.html"><span class="doc">Facebook Pixel</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FACEBOOK_PIXEL_ID</span> <span class="o">=</span> <span class="s1">&#39;1234567890&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/gauges.html"><span class="doc">Gaug.es</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GAUGES_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef0123456789abcdef&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/google_analytics.html"><span class="doc">Google Analytics</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GOOGLE_ANALYTICS_PROPERTY_ID</span> <span class="o">=</span> <span class="s1">&#39;UA-1234567-8&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/hubspot.html"><span class="doc">HubSpot</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HUBSPOT_PORTAL_ID</span> <span class="o">=</span> <span class="s1">&#39;1234&#39;</span>
+<span class="n">HUBSPOT_DOMAIN</span> <span class="o">=</span> <span class="s1">&#39;somedomain.web101.hubspot.com&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/intercom.html"><span class="doc">Intercom</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INTERCOM_APP_ID</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef0123456789abcdef01234567&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/kiss_insights.html"><span class="doc">KISSinsights</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KISS_INSIGHTS_ACCOUNT_NUMBER</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+<span class="n">KISS_INSIGHTS_SITE_CODE</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/kiss_metrics.html"><span class="doc">KISSmetrics</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KISS_METRICS_API_KEY</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef0123456789abcdef01234567&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/matomo.html"><span class="doc">Matomo (formerly Piwik)</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MATOMO_DOMAIN_PATH</span> <span class="o">=</span> <span class="s1">&#39;your.matomo.server/optional/path&#39;</span>
+<span class="n">MATOMO_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/mixpanel.html"><span class="doc">Mixpanel</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIXPANEL_API_TOKEN</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef0123456789abcdef&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/olark.html"><span class="doc">Olark</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OLARK_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;1234-567-89-0123&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/optimizely.html"><span class="doc">Optimizely</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OPTIMIZELY_ACCOUNT_NUMBER</span> <span class="o">=</span> <span class="s1">&#39;1234567&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/performable.html"><span class="doc">Performable</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PERFORMABLE_API_KEY</span> <span class="o">=</span> <span class="s1">&#39;123abc&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/piwik.html"><span class="doc">Piwik (deprecated, see Matomo)</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PIWIK_DOMAIN_PATH</span> <span class="o">=</span> <span class="s1">&#39;your.piwik.server/optional/path&#39;</span>
+<span class="n">PIWIK_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/rating_mailru.html"><span class="doc">Rating&#64;Mail.ru</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RATING_MAILRU_COUNTER_ID</span> <span class="o">=</span> <span class="s1">&#39;1234567&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/woopra.html"><span class="doc">Woopra</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WOOPRA_DOMAIN</span> <span class="o">=</span> <span class="s1">&#39;abcde.com&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="services/yandex_metrica.html"><span class="doc">Yandex.Metrica</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YANDEX_METRICA_COUNTER_ID</span> <span class="o">=</span> <span class="s1">&#39;12345678&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<p>The django-analytical application is now set-up to track visitors.  For
+information about identifying users, further configuration and
+customization, see <a class="reference internal" href="features.html"><span class="doc">Features and customization</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/django-analytical/docs/install.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

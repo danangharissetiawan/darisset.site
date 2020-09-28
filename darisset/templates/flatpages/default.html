@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head_title %}
+{{flatpage.title}}
+{% endblock head_title %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-lg-8">
+   
+        {{flatpage.content|safe}}
+    
+    </div>
+</div>
+{% endblock contents %}

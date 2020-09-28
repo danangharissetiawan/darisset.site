@@ -1,0 +1,2618 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <haris@darisset.site>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-09 00:43+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: darisset/apps/blog/models.py:25
+msgid "user"
+msgstr "pengguna"
+
+#: darisset/apps/blog/models.py:28
+msgid "interaction"
+msgstr "interaksi"
+
+#: darisset/apps/blog/models.py:57
+msgid "Profile"
+msgstr "Profil"
+
+#: darisset/apps/blog/models.py:58
+msgid "Profiles"
+msgstr ""
+
+#: darisset/apps/blog/models.py:102
+msgid "bookmark"
+msgstr "penanda"
+
+#: darisset/apps/blog/models.py:130
+msgid "Post"
+msgstr "Postingan"
+
+#: darisset/apps/blog/models.py:131
+msgid "Posts"
+msgstr "Postingan"
+
+#: darisset/apps/blog/models.py:151
+msgid "reply"
+msgstr "balasan"
+
+#: darisset/apps/blog/models.py:164
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:118
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:159
+msgid "Comment"
+msgstr "Komentar"
+
+#: darisset/apps/blog/models.py:165
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:127
+msgid "Comments"
+msgstr "Komentar"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:33
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:72
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:93
+#: darisset/apps/blog/templates/darisset/blog/bookmarks.html:29
+#: darisset/apps/blog/templates/darisset/blog/categories.html:34
+#: darisset/apps/blog/templates/darisset/blog/categories.html:119
+#: darisset/apps/blog/templates/darisset/blog/penulis.html:52
+#: darisset/apps/blog/templates/darisset/blog/search.html:33
+#: darisset/apps/blog/templates/darisset/blog/search.html:67
+#: darisset/templates/darisset/index.html:28
+#: darisset/templates/darisset/index.html:69
+#: darisset/templates/darisset/index.html:90
+#: darisset/templates/darisset/index.html:120
+#: darisset/templates/darisset/index.html:162
+#: darisset/templates/darisset/index.html:242
+msgid "in"
+msgstr "di"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:50
+#, fuzzy
+#| msgid "Categories"
+msgid " Categories: "
+msgstr "Kategori"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:50
+msgid " Tags: "
+msgstr "Tag"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:53
+msgid "Share:"
+msgstr "Bagikan"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:110
+msgid "Post Comment"
+msgstr "Komentar Postingan"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:116
+#, fuzzy
+#| msgid "Enter your email ..."
+msgid "Enter Your Comment"
+msgstr "Masukan email anda ..."
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:147
+msgid "Reply"
+msgstr "Balasan"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:202
+#: darisset/apps/blog/templates/darisset/blog/categories.html:110
+#: darisset/apps/blog/templates/darisset/blog/search.html:58
+msgid "Popular Posts"
+msgstr "Postingan Populer"
+
+#: darisset/apps/blog/templates/darisset/blog/blog-single.html:225
+#: darisset/apps/blog/templates/darisset/blog/categories.html:135
+#: darisset/apps/blog/templates/darisset/blog/search.html:83
+#: darisset/templates/darisset/index.html:134
+msgid "See All Popular"
+msgstr "Lihat Semua Postingan Populer"
+
+#: darisset/apps/blog/templates/darisset/blog/bookmarks.html:14
+msgid "Categories"
+msgstr "Kategori"
+
+#: darisset/apps/blog/templates/darisset/blog/bookmarks.html:15
+#: darisset/apps/blog/templates/darisset/blog/categories.html:8
+#: darisset/apps/blog/templates/darisset/blog/categories.html:20
+#: darisset/apps/blog/templates/darisset/blog/penulis.html:38
+#, python-format
+msgid "%(title)s"
+msgstr ""
+
+#: darisset/apps/blog/templates/darisset/blog/bookmarks.html:42
+#: darisset/apps/blog/templates/darisset/blog/categories.html:47
+#: darisset/apps/blog/templates/darisset/blog/categories.html:132
+#: darisset/apps/blog/templates/darisset/blog/penulis.html:65
+#: darisset/apps/blog/templates/darisset/blog/search.html:46
+#: darisset/apps/blog/templates/darisset/blog/search.html:80
+msgid "No posts yet"
+msgstr "Belum ada postingan"
+
+#: darisset/apps/blog/templates/darisset/blog/contact.html:24
+#: darisset/templates/admin/newsletter/submission/change_form.html:16
+msgid "Submit"
+msgstr "Kirim"
+
+#: darisset/apps/blog/templates/darisset/blog/search.html:20
+msgid "Search results from "
+msgstr "Hasil pencarian dari "
+
+#: darisset/apps/blog/templates/darisset/blog/search.html:50
+msgid "Results of"
+msgstr "Hasil dari"
+
+#: darisset/apps/blog/templates/darisset/blog/search.html:50
+msgid "not found!"
+msgstr "tidak ditemukan!"
+
+#: darisset/settings/base.py:166
+msgid "English"
+msgstr "Inggris"
+
+#: darisset/settings/base.py:167
+msgid "Indonesia"
+msgstr ""
+
+#: darisset/templates/404.html:6 darisset/templates/404.html:57
+msgid "Page Not Found"
+msgstr "Halaman Tidak Ditemukan"
+
+#: darisset/templates/404.html:58
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Maaf, tetapi halaman yang Anda coba lihat tidak ada."
+
+#: darisset/templates/account/account_inactive.html:5
+#: darisset/templates/account/account_inactive.html:9
+msgid "Account Inactive"
+msgstr "Akun Tidak Aktif"
+
+#: darisset/templates/account/account_inactive.html:11
+msgid "This account is inactive."
+msgstr "Akun ini tidak aktif."
+
+#: darisset/templates/account/email.html:5
+msgid "Account"
+msgstr "Akun"
+
+#: darisset/templates/account/email.html:23
+msgid "E-mail Addresses"
+msgstr "Alamat Email"
+
+#: darisset/templates/account/email.html:27
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "Alamat email berikut dikaitkan dengan akun Anda:"
+
+#: darisset/templates/account/email.html:40
+msgid "(Verified)"
+msgstr "(Diverifikasi)"
+
+#: darisset/templates/account/email.html:42
+msgid "(Not Verified!)"
+msgstr "(Tidak diverifikasi!)"
+
+#: darisset/templates/account/email.html:48
+#, fuzzy
+#| msgid "Primary e-mail address set."
+msgid "Primary Email"
+msgstr "Email utama disetel."
+
+#: darisset/templates/account/email.html:58
+msgid "Make Primary"
+msgstr "jadikan Primer"
+
+#: darisset/templates/account/email.html:59
+msgid "Re-send Verification"
+msgstr "Kirim ulang Verifikasi"
+
+#: darisset/templates/account/email.html:60
+#: darisset/templates/socialaccount/connections.html:35
+msgid "Remove"
+msgstr "Hapus"
+
+#: darisset/templates/account/email.html:69
+msgid "Warning:"
+msgstr "Peringatan"
+
+#: darisset/templates/account/email.html:69
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"Saat ini Anda tidak memiliki alamat email yang diatur. Anda harus benar-"
+"benar menambahkan alamat email sehingga Anda dapat menerima pemberitahuan, "
+"mengatur ulang kata sandi, dll."
+
+#: darisset/templates/account/email.html:73
+msgid "Add E-mail Address"
+msgstr "Tambahkan alamat Email"
+
+#: darisset/templates/account/email.html:78
+msgid "Email :"
+msgstr ""
+
+#: darisset/templates/account/email.html:79
+msgid "E-mail address"
+msgstr "Alamat Email"
+
+#: darisset/templates/account/email.html:82
+msgid "Add E-mail"
+msgstr "Tambahkan Email"
+
+#: darisset/templates/account/email.html:92
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "Apakah Anda benar-benar ingin menghapus alamat email yang dipilih?"
+
+#: darisset/templates/account/email/email_confirmation_message.html:10
+msgid "Registration confirmation email"
+msgstr "Email konfirmasi pendaftaran"
+
+#: darisset/templates/account/email/email_confirmation_message.html:311
+msgid "Please confirm your email address by clicking the link below."
+msgstr ""
+"Harap konfirmasi alamat email Anda dengan mengklik tautan di bawah ini."
+
+#: darisset/templates/account/email/email_confirmation_message.html:316
+msgid ""
+"We may need to send you critical information about our service and it is "
+"important that we have an accurate email address."
+msgstr ""
+"Kami mungkin perlu mengirimi Anda informasi penting tentang layanan kami dan "
+"itu adalahPenting bahwa kita memiliki alamat email yang akurat."
+
+#: darisset/templates/account/email/email_confirmation_message.html:321
+#, fuzzy
+#| msgid "Confirm E-mail Address"
+msgid "Confirm email address"
+msgstr "Konfirmasi alamat email"
+
+#: darisset/templates/account/email/email_confirmation_message.txt:1
+#, python-format
+msgid ""
+"Hello from %(site_name)s!\n"
+"\n"
+"You're receiving this e-mail because user %(user_display)s has given yours "
+"as an e-mail address to connect their account.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s\n"
+msgstr ""
+"Halo dari %(site_name)s!\n"
+"\n"
+"Anda menerima email ini karena pengguna %(user_display)s telah memberikan "
+"email Anda sebagai alamat email untuk menghubungkan akun mereka.\n"
+"\n"
+"Untuk mengonfirmasi ini benar, buka %(activate_url)s\n"
+
+#: darisset/templates/account/email/email_confirmation_message.txt:7
+#, python-format
+msgid ""
+"Thank you from %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Terima kasih dari %(site_name)s!\n"
+"%(site_domain)s"
+
+#: darisset/templates/account/email/email_confirmation_signup_subject.html:3
+msgid "Confirm Your Registartion - Talkative"
+msgstr "Konfirmasikan Pendaftaran Anda"
+
+#: darisset/templates/account/email/email_confirmation_subject.txt:3
+#, fuzzy
+#| msgid "Confirm E-mail Address"
+msgid "Please Confirm Your E-mail Address"
+msgstr "Konfirmasi alamat email"
+
+#: darisset/templates/account/email/password_reset_key_message.txt:1
+#, python-format
+msgid ""
+"Hello from %(site_name)s!\n"
+"\n"
+"You're receiving this e-mail because you or someone else has requested a "
+"password for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Halo dari %(site_name)s!\n"
+"\n"
+"Anda menerima email ini karena Anda atau orang lain telah meminta kata sandi "
+"untuk akun pengguna Anda.\n"
+"Itu bisa diabaikan dengan aman jika Anda tidak meminta setel ulang kata "
+"sandi. Kliktautan di bawah untuk mengatur ulang kata sandi Anda."
+
+#: darisset/templates/account/email/password_reset_key_message.txt:8
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "Jika Anda lupa, nama pengguna Anda adalah %(username)s."
+
+#: darisset/templates/account/email/password_reset_key_message.txt:10
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Terima kasih telah berkunjung di %(site_name)s!\n"
+"%(site_domain)s"
+
+#: darisset/templates/account/email/password_reset_key_subject.html:3
+msgid "Reset Password talkative"
+msgstr "Reset Kata Sandi latah"
+
+#: darisset/templates/account/email/password_reset_key_subject.txt:3
+#, fuzzy
+#| msgid "Password Reset Email Sent."
+msgid "Password Reset E-mail"
+msgstr " Email Reset Kata Sandi Terkirim."
+
+#: darisset/templates/account/email_confirm.html:5
+#: darisset/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Konfirmasi alamat email"
+
+#: darisset/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+" Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+" Harap konfirmasi <a href=\"mailto:%(email)s\">%(email)s</a> alamat email "
+"untuk pegguna %(user_display)s."
+
+#: darisset/templates/account/email_confirm.html:20
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:40
+msgid "Confirm"
+msgstr "Konfirmasi"
+
+#: darisset/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>. You will be "
+"redirected to login page in 5 seconds."
+msgstr ""
+"Tautan konfirmasi email ini kedaluwarsa atau tidak valid. Silahkan <a href="
+"\"%(email_url)s\">mengeluarkan permintaan konfirmasi email baru</a>. Anda "
+"akan menjadi dialihkan ke halaman login dalam 5 detik."
+
+#: darisset/templates/account/login.html:8
+#: darisset/templates/account/password_reset_from_key_done.html:9
+#: darisset/templates/snippets/header-top.html:161
+msgid "Login"
+msgstr "Masuk"
+
+#: darisset/templates/account/login.html:12
+#: darisset/templates/account/login.html:77
+msgid "Sign In"
+msgstr "Masuk"
+
+#: darisset/templates/account/login.html:53
+msgid "Welcome"
+msgstr "Selamat Datang"
+
+#: darisset/templates/account/login.html:69
+msgid "Remember Me"
+msgstr "Ingat Saya"
+
+#: darisset/templates/account/login.html:95
+msgid "Forgot "
+msgstr "Lupa "
+
+#: darisset/templates/account/login.html:99
+msgid " Password ?"
+msgstr "Kata Sandi ?"
+
+#: darisset/templates/account/login.html:105
+msgid "Don’t have an account?"
+msgstr "Belum punya akun?"
+
+#: darisset/templates/account/login.html:109
+msgid "Sign up"
+msgstr "Daftar"
+
+#: darisset/templates/account/logout.html:5
+#: darisset/templates/account/logout.html:10
+#: darisset/templates/account/logout.html:22
+msgid "Sign Out"
+msgstr "Keluar"
+
+#: darisset/templates/account/logout.html:12
+msgid "Hai! "
+msgstr ""
+
+#: darisset/templates/account/logout.html:12
+msgid "Are you sure you want to sign out?"
+msgstr "Apakah Anda yakin ingin keluar?"
+
+#: darisset/templates/account/logout.html:23
+#: env/lib/python3.6/site-packages/django/forms/widgets.py:713
+msgid "No"
+msgstr "Tidak"
+
+#: darisset/templates/account/messages/cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary e-mail address (%(email)s)."
+msgstr "Anda tidak dapat menghapus alamat email utama Anda (%(email)s)."
+
+#: darisset/templates/account/messages/email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s."
+msgstr "Email konfirmasi dikirim ke %(email)s."
+
+#: darisset/templates/account/messages/email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "Anda sudah mengkonfirmasi %(email)s."
+
+#: darisset/templates/account/messages/email_deleted.txt:2
+#, python-format
+msgid "Removed e-mail address %(email)s."
+msgstr "Alamat email yang dihapus %(email)s."
+
+#: darisset/templates/account/messages/logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "Berhasil masuk sebagai %(name)s."
+
+#: darisset/templates/account/messages/logged_out.txt:2
+msgid "You have signed out."
+msgstr "Anda sudah keluar."
+
+#: darisset/templates/account/messages/password_changed.txt:2
+msgid "Password successfully changed."
+msgstr "Kata sandi berhasil diubah."
+
+#: darisset/templates/account/messages/password_set.txt:2
+msgid "Password successfully set."
+msgstr "Kata sandi berhasil disetel."
+
+#: darisset/templates/account/messages/primary_email_set.txt:2
+msgid "Primary e-mail address set."
+msgstr "Email utama disetel."
+
+#: darisset/templates/account/messages/unverified_primary_email.txt:2
+msgid "Your primary e-mail address must be verified."
+msgstr "Alamat email utama Anda harus diverifikasi."
+
+#: darisset/templates/account/password_change.html:5
+#: darisset/templates/account/password_change.html:44
+#: darisset/templates/account/password_change.html:61
+#: darisset/templates/account/password_reset_from_key.html:4
+#: darisset/templates/account/password_reset_from_key.html:8
+#: darisset/templates/account/password_reset_from_key_done.html:4
+#: darisset/templates/account/password_reset_from_key_done.html:8
+#: darisset/templates/snippets/header-top.html:154
+msgid "Change Password"
+msgstr "Ganti kata sandi"
+
+#: darisset/templates/account/password_change.html:49
+#: darisset/templates/account/password_change.html:50
+msgid "Current Password"
+msgstr "kata sandi saat ini"
+
+#: darisset/templates/account/password_change.html:53
+#: darisset/templates/account/password_change.html:54
+msgid "New Password"
+msgstr "Kata sandi baru"
+
+#: darisset/templates/account/password_change.html:57
+msgid "New Password (again)"
+msgstr "Kata sandi baru (lagi)"
+
+#: darisset/templates/account/password_change.html:58
+msgid "New Password(again)"
+msgstr "Kata sandi baru (lagi)"
+
+#: darisset/templates/account/password_reset.html:6
+#: darisset/templates/account/password_reset.html:17
+#: darisset/templates/account/password_reset_done.html:6
+msgid "Password Reset"
+msgstr "Reset Kata Sandi"
+
+#: darisset/templates/account/password_reset.html:18
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"Lupa kata sandi? Masukkan alamat email Anda di bawah ini, dan kami akan "
+"mengirim Anda "
+
+#: darisset/templates/account/password_reset.html:23
+msgid "Email"
+msgstr ""
+
+#: darisset/templates/account/password_reset.html:24
+msgid "Enter your email ..."
+msgstr "Masukan email anda ..."
+
+#: darisset/templates/account/password_reset.html:27
+msgid "Reset My Password"
+msgstr "Reset Kata Sandi"
+
+#: darisset/templates/account/password_reset.html:30
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+"Silakan hubungi kami jika Anda kesulitan mengatur ulang kata sandi Anda."
+
+#: darisset/templates/account/password_reset_done.html:11
+msgid "Password Reset Email Sent."
+msgstr " Email Reset Kata Sandi Terkirim."
+
+#: darisset/templates/account/password_reset_done.html:17
+msgid ""
+"\n"
+"   \t\t <p class=\"text-center forgot_password_info\">We have sent you an e-"
+"mail. Please contact us if you do not receive it within a few minutes. <br> "
+"You will be redirected to <a href=\"/accounts/login\">Sign In</a> page in 5 "
+"seconds.</p>\n"
+"\t\t"
+msgstr ""
+"\n"
+"   \t\t <p class=\"text-center forgot_password_info\">Kami telah mengirimi "
+"Anda email. Silakan hubungi kami jika Anda tidak menerimanya dalam beberapa "
+"menit. <br> Anda akan diarahkan ke halaman <a href=\"/accounts/login"
+"\">masuk</a> dalam 5 detik.</p>\n"
+"\t\t"
+
+#: darisset/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr "Token Salah"
+
+#: darisset/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"Tautan pengaturan ulang kata sandi tidak valid, mungkin karena sudah "
+"digunakkan. Silahkan minta <a href=\"%(passwd_reset_url)s\">  reset kata "
+"sandi baru</a>."
+
+#: darisset/templates/account/password_reset_from_key.html:27
+msgid "change password"
+msgstr "ubah kata sandi"
+
+#: darisset/templates/account/password_reset_from_key.html:30
+#: darisset/templates/account/password_reset_from_key_done.html:9
+msgid "Your password is now changed."
+msgstr "Kata sandi Anda sekarang diubah."
+
+#: darisset/templates/account/password_set.html:5
+#: darisset/templates/account/password_set.html:27
+#: darisset/templates/account/password_set.html:32
+msgid "Set Password"
+msgstr "Setel Kata Sandi"
+
+#: darisset/templates/account/signup.html:8
+#: darisset/templates/account/signup.html:12
+#: darisset/templates/account/signup.html:83
+#: darisset/templates/snippets/header-top.html:164
+#: darisset/templates/socialaccount/signup.html:8
+#: darisset/templates/socialaccount/signup.html:19
+msgid "Sign Up"
+msgstr "Daftar"
+
+#: darisset/templates/account/signup.html:54
+msgid "Congratulations Merge"
+msgstr "Selamat Bergabung"
+
+#: darisset/templates/account/signup.html:90
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+"Sudah memiliki akun? Kalau begitu tolong <a href=\"%(login_url)s\">masuk</a>."
+
+#: darisset/templates/account/signup_closed.html:5
+#: darisset/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "Pendaftaran ditutup"
+
+#: darisset/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Kami minta maaf, tetapi pendaftaran saat ini ditutup."
+
+#: darisset/templates/account/snippets/already_logged_in.html:11
+msgid "Already Logged in!"
+msgstr "Anda Telah masuk!"
+
+#: darisset/templates/account/snippets/already_logged_in.html:12
+msgid "You are already logged in as"
+msgstr "Anda sudah masuk sebagai"
+
+#: darisset/templates/account/snippets/already_logged_in.html:13
+msgid "Back to Home"
+msgstr "Kembali ke Rumah"
+
+#: darisset/templates/account/verification_sent.html:5
+#: darisset/templates/account/verification_sent.html:9
+#: darisset/templates/account/verified_email_required.html:5
+#: darisset/templates/account/verified_email_required.html:9
+msgid "Verify Your E-mail Address"
+msgstr "Verifikasi alamat email Anda"
+
+#: darisset/templates/account/verification_sent.html:11
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"Kami telah mengirim email kepada Anda untuk verifikasi. Ikuti tautan yang "
+"disediakan untuk menyelesaikan proses pendaftaran. Silakan hubungi kami jika "
+"Anda tidak menerimanya dalam beberapa menit."
+
+#: darisset/templates/account/verified_email_required.html:13
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+"Bagian situs ini mengharuskan kami untuk memverifikasi \n"
+"bahwa Anda adalah orang yang Anda klaim. Untuk tujuan ini, kami meminta "
+"Anda\n"
+"verifikasi kepemilikan alamat email Anda. "
+
+#: darisset/templates/account/verified_email_required.html:17
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+"Kami telah mengirim email kepada Anda untuk\n"
+"verifikasi. Silakan klik tautan di dalam email ini. Tolong\n"
+"hubungi kami jika Anda tidak menerimanya dalam beberapa menit."
+
+#: darisset/templates/account/verified_email_required.html:21
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>Catatan:</strong> kamu masih bisa <a href=\"%(email_url)s"
+"\">mengubahalamat email anda</a>"
+
+#: darisset/templates/admin/newsletter/message/change_form.html:8
+#: darisset/templates/admin/newsletter/message/preview.html:13
+msgid "Preview"
+msgstr "Pertinjau"
+
+#: darisset/templates/admin/newsletter/message/preview.html:5
+#: darisset/templates/admin/newsletter/message/preview.html:19
+msgid "Preview message"
+msgstr "Pertinjau pesan"
+
+#: darisset/templates/admin/newsletter/message/preview.html:9
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:8
+#: darisset/templates/admin/newsletter/subscription/importform.html:8
+#: darisset/templates/snippets/header-top.html:74
+#: darisset/templates/snippets/header-top.html:78
+msgid "Home"
+msgstr "Rumah"
+
+#: darisset/templates/admin/newsletter/message/preview.html:11
+msgid "Message"
+msgstr "Pesan"
+
+#: darisset/templates/admin/newsletter/message/preview.html:22
+#: darisset/templates/admin/newsletter/subscription/importform.html:28
+#: env/lib/python3.6/site-packages/django/forms/widgets.py:397
+msgid "Change"
+msgstr "Perubahan"
+
+#: darisset/templates/admin/newsletter/message/preview.html:23
+#: darisset/templates/admin/newsletter/subscription/importform.html:29
+msgid "Create submission"
+msgstr "Buat pengiriman"
+
+#: darisset/templates/admin/newsletter/message/preview.html:26
+msgid "HTML"
+msgstr ""
+
+#: darisset/templates/admin/newsletter/message/preview.html:30
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2081
+msgid "Text"
+msgstr "Teks"
+
+#: darisset/templates/admin/newsletter/subscription/change_list.html:5
+msgid "Import"
+msgstr ""
+
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:3
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:20
+#: darisset/templates/admin/newsletter/subscription/importform.html:3
+#: darisset/templates/admin/newsletter/subscription/importform.html:19
+#: darisset/templates/admin/newsletter/subscription/importform.html:24
+#, fuzzy
+#| msgid "E-mail Addresses"
+msgid "Import addresses"
+msgstr "Alamat Email"
+
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:12
+#: darisset/templates/admin/newsletter/subscription/importform.html:12
+#: darisset/templates/newsletter/common.html:6
+#: darisset/templates/newsletter/newsletter_detail.html:9
+#: darisset/templates/newsletter/newsletter_list.html:15
+#: darisset/templates/newsletter/newsletter_list.html:35
+#: darisset/templates/newsletter/subscription_activate.html:6
+#: darisset/templates/newsletter/subscription_activate.html:9
+#: darisset/templates/newsletter/subscription_subscribe_activated.html:5
+#: darisset/templates/newsletter/subscription_subscribe_activated.html:8
+#: darisset/templates/newsletter/subscription_unsubscribe_activated.html:5
+#: darisset/templates/newsletter/subscription_unsubscribe_activated.html:8
+#: darisset/templates/newsletter/subscription_update_activated.html:5
+#: darisset/templates/newsletter/subscription_update_activated.html:8
+#: darisset/templates/snippets/footer.html:106
+#: darisset/templates/snippets/header-top.html:155
+msgid "Newsletter"
+msgstr ""
+
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:16
+#: darisset/templates/admin/newsletter/subscription/importform.html:16
+msgid "Subscriptions"
+msgstr "Berlangganan"
+
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:23
+#: darisset/templates/admin/newsletter/subscription/confirmimportform.html:28
+#, fuzzy
+#| msgid "Confirm"
+msgid "Confirm import"
+msgstr "Konfirmasi"
+
+#: darisset/templates/admin/newsletter/subscription/importform.html:37
+msgid "Upload"
+msgstr "Upload"
+
+#: darisset/templates/base.html:45
+#, python-format
+msgid "%(message)s"
+msgstr ""
+
+#: darisset/templates/darisset/index.html:56
+msgid "Jurnal"
+msgstr ""
+
+#: darisset/templates/darisset/index.html:109
+msgid "Popular"
+msgstr "Populer"
+
+#: darisset/templates/darisset/index.html:149
+msgid "Post All"
+msgstr "Semua Postingan"
+
+#: darisset/templates/darisset/index.html:233
+msgid "Recent Posts"
+msgstr "Postingan Terbaru"
+
+#: darisset/templates/newsletter/message/message.html:21
+msgid "Read more"
+msgstr "Baca lebih banyak"
+
+#: darisset/templates/newsletter/message/message.html:27
+msgid "Read message online"
+msgstr "Baca pesan online"
+
+#: darisset/templates/newsletter/message/message.html:29
+#: darisset/templates/newsletter/newsletter_detail.html:12
+#: darisset/templates/newsletter/subscription_unsubscribe.html:19
+#: darisset/templates/newsletter/subscription_unsubscribe_user.html:23
+msgid "Unsubscribe"
+msgstr "Berhenti berlangganan"
+
+#: darisset/templates/newsletter/message/message.txt:15
+msgid "Unsubscribe:"
+msgstr "Berhenti berlangganan:"
+
+#: darisset/templates/newsletter/message/subscribe.html:6
+#, python-format
+msgid "Subscription to %(title)s"
+msgstr "Berlangganan %(title)s"
+
+#: darisset/templates/newsletter/message/subscribe.html:10
+#: darisset/templates/newsletter/message/subscribe.txt:1
+#: darisset/templates/newsletter/message/unsubscribe.html:9
+#: darisset/templates/newsletter/message/unsubscribe.txt:1
+#: darisset/templates/newsletter/message/update.html:9
+#: darisset/templates/newsletter/message/update.txt:1
+msgid "Sir/Madam"
+msgstr "Bapak/Ibu"
+
+#: darisset/templates/newsletter/message/subscribe.html:10
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested a subscription to %(title)s.\n"
+"\n"
+"If you would like to confirm your subscription, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Warm greetings, and keep smiling for the extraordinary :)"
+msgstr ""
+"Yang Terhormat %(name)s,\n"
+"\n"
+"Anda, atau seseorang dengan nama Anda meminta berlangganan %(title)s.\n"
+"\n"
+"Jika Anda ingin mengonfirmasi langganan Anda, silakan ikuti ini tautan "
+"aktifasi:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Salam hangat, dan terus tersenyum untuk yang luar biasa :)"
+
+#: darisset/templates/newsletter/message/subscribe.txt:1
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested a subscription to %(title)s.\n"
+"\n"
+"If you would like to confirm your subscription, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Warm greetings, and keep smiling for the extraordinary :),"
+msgstr ""
+"Yang Terhormat %(name)s,\n"
+"\n"
+"Anda, atau seseorang dengan nama Anda meminta berlangganan %(title)s.\n"
+"\n"
+"Jika Anda ingin mengonfirmasi langganan Anda, silakan ikuti ini tautan "
+"aktifase:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Salam hangat, dan terus tersenyum untuk yang luar biasa :),"
+
+#: darisset/templates/newsletter/message/subscribe_subject.txt:1
+msgid "Confirm subscription"
+msgstr "Konfirmasikan berlangganan"
+
+#: darisset/templates/newsletter/message/unsubscribe.html:6
+#, python-format
+msgid "Unsubscription from %(title)s"
+msgstr "Berhenti berlangganan dari %(title)s"
+
+#: darisset/templates/newsletter/message/unsubscribe.html:9
+#: darisset/templates/newsletter/message/unsubscribe.txt:1
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested unsubscription from %(title)s.\n"
+"\n"
+"If you would like to confirm your unsubscription, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Warm greetings, and keep smiling for the extraordinary :)"
+msgstr ""
+"Yang Terhormat %(name)s,\n"
+"\n"
+"Anda, atau seseorang dengan nama Anda meminta berhenti berlangganan "
+"%(title)s.\n"
+"\n"
+"Jika Anda ingin mengonfirmasi berhenti berlangganan, harap ikuti initautan "
+"aktivasi:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Salam hangat, dan terus tersenyum untuk yang luar biasa :)"
+
+#: darisset/templates/newsletter/message/unsubscribe_subject.txt:1
+msgid "Confirm unsubscription"
+msgstr "Konfirmasikan berhenti berlangganan"
+
+#: darisset/templates/newsletter/message/update.html:6
+#, python-format
+msgid "Update of subscription to %(title)s"
+msgstr "Pembaruan berlangganan untuk %(title)s"
+
+#: darisset/templates/newsletter/message/update.html:9
+#: darisset/templates/newsletter/message/update.txt:1
+#, python-format
+msgid ""
+"Dear %(name)s,\n"
+"\n"
+"you, or someone in your name requested updating your personal information "
+"for %(title)s.\n"
+"\n"
+"To make changes to your information in our database, please follow this "
+"activation link:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"you, or someone in your name requested unsubscription from"
+msgstr ""
+"Yang Terhormat %(name)s,\n"
+"\n"
+"Anda, atau seseorang dengan nama Anda meminta memperbarui informasi pribadi "
+"Andadari %(title)s.\n"
+"\n"
+"Untuk membuat perubahan pada informasi Anda di basis data kami, silakan "
+"ikuti initautan aktivasi:\n"
+"http://%(domain)s%(url)s\n"
+"\n"
+"Anda, atau seseorang dari nama Anda meminta berhenti berlangganan dari"
+
+#: darisset/templates/newsletter/message/update_subject.txt:1
+msgid "Update information"
+msgstr "Perbarui informasi"
+
+#: darisset/templates/newsletter/newsletter_detail.html:5
+msgid "Newsletter detail"
+msgstr ""
+
+#: darisset/templates/newsletter/newsletter_detail.html:10
+#: darisset/templates/newsletter/newsletter_list.html:17
+#: darisset/templates/newsletter/subscription_subscribe.html:28
+#: darisset/templates/newsletter/subscription_subscribe_user.html:22
+msgid "Subscribe"
+msgstr "Berlangganan"
+
+#: darisset/templates/newsletter/newsletter_detail.html:11
+msgid "Update"
+msgstr "Memperbarui"
+
+#: darisset/templates/newsletter/newsletter_detail.html:13
+msgid "Archive"
+msgstr "Arsipkan"
+
+#: darisset/templates/newsletter/newsletter_detail.html:14
+#: darisset/templates/newsletter/submission_archive.html:18
+#, fuzzy
+#| msgid "Back to Home"
+msgid "Back to list"
+msgstr "Kembali ke Rumah"
+
+#: darisset/templates/newsletter/newsletter_list.html:5
+msgid "Newsletter list"
+msgstr "Daftar newsletter"
+
+#: darisset/templates/newsletter/newsletter_list.html:31
+msgid "Update subscriptions"
+msgstr "Perbarui langganan"
+
+#: darisset/templates/newsletter/submission_archive.html:5
+#: darisset/templates/newsletter/submission_archive.html:10
+msgid "Newsletter archive"
+msgstr "Arsip newsletter"
+
+#: darisset/templates/newsletter/subscription_activate.html:6
+#: darisset/templates/newsletter/subscription_activate.html:9
+#: darisset/templates/newsletter/subscription_subscribe_activated.html:5
+#: darisset/templates/newsletter/subscription_subscribe_activated.html:8
+#: darisset/templates/newsletter/subscription_unsubscribe_activated.html:5
+#: darisset/templates/newsletter/subscription_unsubscribe_activated.html:8
+#: darisset/templates/newsletter/subscription_update_activated.html:5
+#: darisset/templates/newsletter/subscription_update_activated.html:8
+msgid "activate"
+msgstr "aktivasi"
+
+#: darisset/templates/newsletter/subscription_activate.html:14
+msgid "Activate"
+msgstr "Aktivasi"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:5
+#: darisset/templates/newsletter/subscription_subscribe.html:8
+#: darisset/templates/newsletter/subscription_subscribe_email_sent.html:5
+#: darisset/templates/newsletter/subscription_subscribe_email_sent.html:8
+#: darisset/templates/newsletter/subscription_subscribe_user.html:5
+#: darisset/templates/newsletter/subscription_subscribe_user.html:8
+msgid "Newsletter subscribe"
+msgstr "Berlangganan buletin"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:11
+#: darisset/templates/newsletter/subscription_unsubscribe.html:12
+#: darisset/templates/newsletter/subscription_update.html:13
+msgid ""
+"Due to a technical error we were not able to submit your confirmation email. "
+"This could be because your email address is invalid."
+msgstr ""
+"Karena kesalahan teknis, kami tidak dapat mengirimkan email konfirmasi Anda."
+"Ini bisa jadi karena alamat email Anda tidak valid."
+
+#: darisset/templates/newsletter/subscription_subscribe.html:13
+#: darisset/templates/newsletter/subscription_unsubscribe.html:14
+#: darisset/templates/newsletter/subscription_update.html:15
+msgid ""
+"If the error persists, please don't hesitate to contact us at the following "
+"email address:"
+msgstr ""
+"Jika kesalahan berlanjut, jangan ragu untuk menghubungi kami di berikut "
+"inialamat email:"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:18
+msgid "Name:"
+msgstr "Nama"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:20
+msgid "Enter to name"
+msgstr "Masukan nama anda"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:21
+msgid "Optional"
+msgstr "Pilihan"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:24
+#, fuzzy
+#| msgid "Add E-mail"
+msgid "Email:"
+msgstr "Tambahkan Email"
+
+#: darisset/templates/newsletter/subscription_subscribe.html:26
+#, fuzzy
+#| msgid "Enter your email ..."
+msgid "Enter to email"
+msgstr "Masukan email anda ..."
+
+#: darisset/templates/newsletter/subscription_subscribe_activated.html:10
+msgid "Your subscription has successfully been activated."
+msgstr "Langganan Anda telah berhasil diaktifkan."
+
+#: darisset/templates/newsletter/subscription_subscribe_email_sent.html:10
+msgid ""
+"Your subscription request was successfully received and an activation email "
+"has been sent to you. In that email you will find a link which you need to "
+"follow in order to activate your subscription."
+msgstr ""
+"Permintaan berlangganan Anda berhasil diterima dan email aktivasitelah "
+"dikirimkan kepada Anda. Di email itu Anda akan menemukan tautan yang Anda "
+"perlukanikuti untuk mengaktifkan langganan Anda."
+
+#: darisset/templates/newsletter/subscription_subscribe_user.html:10
+#: darisset/templates/newsletter/subscription_unsubscribe_user.html:10
+#, fuzzy
+#| msgid "Welcome"
+msgid "Welcome,"
+msgstr "Selamat Datang"
+
+#: darisset/templates/newsletter/subscription_subscribe_user.html:19
+msgid "Do you want to subscribe to this newsletter?"
+msgstr "Apakah Anda ingin berlangganan buletin ini?"
+
+#: darisset/templates/newsletter/subscription_unsubscribe.html:6
+#: darisset/templates/newsletter/subscription_unsubscribe.html:9
+#: darisset/templates/newsletter/subscription_unsubscribe_email_sent.html:5
+#: darisset/templates/newsletter/subscription_unsubscribe_email_sent.html:8
+#: darisset/templates/newsletter/subscription_unsubscribe_user.html:5
+#: darisset/templates/newsletter/subscription_unsubscribe_user.html:8
+msgid "Newsletter unsubscribe"
+msgstr "Berhenti berlangganan buletin"
+
+#: darisset/templates/newsletter/subscription_unsubscribe_activated.html:10
+msgid "You have successfully been unsubscribed."
+msgstr "Anda berhasil berhenti berlangganan."
+
+#: darisset/templates/newsletter/subscription_unsubscribe_email_sent.html:10
+msgid ""
+"Your unsubscription request has successfully been received. An email has "
+"been sent to you with a link you need to follow in order to confirm your "
+"unsubscription."
+msgstr ""
+"Permintaan berhenti berlangganan Anda telah berhasil diterima. Email "
+"telahdikirim kepada Anda dengan tautan yang harus Anda ikuti untuk "
+"mengonfirmasi andaberhenti berlangganan."
+
+#: darisset/templates/newsletter/subscription_unsubscribe_user.html:20
+msgid "Do you want to unsubscribe from this newsletter?"
+msgstr "Apakah Anda ingin berhenti berlangganan buletin ini?"
+
+#: darisset/templates/newsletter/subscription_update.html:6
+#: darisset/templates/newsletter/subscription_update.html:10
+#: darisset/templates/newsletter/subscription_update_email_sent.html:5
+#: darisset/templates/newsletter/subscription_update_email_sent.html:8
+msgid "Newsletter update"
+msgstr "Perbarui newsletter"
+
+#: darisset/templates/newsletter/subscription_update.html:20
+msgid "Update subscription"
+msgstr "perbarui langganan"
+
+#: darisset/templates/newsletter/subscription_update_activated.html:10
+msgid "Your subscription has successfully been updated."
+msgstr "Langganan Anda telah berhasil diperbarui."
+
+#: darisset/templates/newsletter/subscription_update_email_sent.html:10
+msgid ""
+"Your update request was successfully received and an activation email has "
+"been sent to you. In that email you will find a link which you need to "
+"follow in order to update your subscription."
+msgstr ""
+"Permintaan pembaruan Anda berhasil diterima dan email aktivasitelah "
+"dikirimkan kepada Anda. Dalam email itu Anda akan menemukan tautan yang "
+"perlu Andaikuti untuk memperbarui langganan Anda."
+
+#: darisset/templates/openid/login.html:9
+msgid "OpenID Sign In"
+msgstr "Masuk OpenID"
+
+#: darisset/templates/snippets/footer.html:10
+#, fuzzy
+#| msgid "Newsletter subscribe"
+msgid "Newsletter Subcribe"
+msgstr "Berlangganan buletin"
+
+#: darisset/templates/snippets/footer.html:11
+msgid ""
+"Big ideas have the power to change perceptions to create value that didn't "
+"exist before. And, in keeping with all good daily quotes, this quotations "
+"page will be short and sweet. Okay, let's get ready for our daily intake <b "
+"class=\"text-black\">Decide and welcome your happiness!..</b>"
+msgstr ""
+"Ide-ide besar memiliki kekuatan untuk mengubah persepsi untuk menciptakan "
+"nilai yang tidakada sebelumnya. Dan, sesuai dengan semua kutipan harian yang "
+"baik, kutipan iniakan menimpan halaman pendek dan manis. Oke, mari kita "
+"bersiap untuk asupan harian kita <b class=\"text-black\">Putuskan dan "
+"sambutlah kebahagiaan Anda! ..</b>"
+
+#: darisset/templates/snippets/footer.html:17
+#, fuzzy
+#| msgid "Enter your email ..."
+msgid "Enter your email"
+msgstr "Masukan email anda ..."
+
+#: darisset/templates/snippets/footer.html:36
+msgid ""
+" Get information that is informative, motivating and in accordance with "
+"facts. Protect yourself from fraud, and be someone who is open minded."
+msgstr ""
+"Dapatkan informasi yang informatif, memotivasi dan sesuai denganfakta. "
+"Lindungi dirimu dari penipuan, dan jadilah seseorang yang berpikiran terbuka."
+
+#: darisset/templates/snippets/footer.html:47
+#, fuzzy
+#| msgid "About"
+msgid "About Us"
+msgstr "Tentang kami"
+
+#: darisset/templates/snippets/footer.html:51
+#, fuzzy
+#| msgid "About Risset"
+msgid "About Darisset"
+msgstr "Tentang Risset"
+
+#: darisset/templates/snippets/footer.html:54
+msgid "Disclaimer"
+msgstr "Penafian"
+
+#: darisset/templates/snippets/footer.html:57
+msgid "Privacy Policy"
+msgstr "Rahasia pribadi"
+
+#: darisset/templates/snippets/footer.html:93
+msgid "Contact"
+msgstr "Kontak"
+
+#: darisset/templates/snippets/footer.html:97
+#, fuzzy
+#| msgid "Contact"
+msgid "Contact Us"
+msgstr "Hubungi Kami"
+
+#: darisset/templates/snippets/footer.html:100
+#, fuzzy
+#| msgid "Add E-mail"
+msgid "Email Us"
+msgstr "Email Kami"
+
+#: darisset/templates/snippets/footer.html:103
+msgid "Whatsapp Us"
+msgstr "Whatsapp Kami"
+
+#: darisset/templates/snippets/header-top.html:26
+msgid "Search..."
+msgstr "Pencarian..."
+
+#: darisset/templates/snippets/header-top.html:83
+#: darisset/templates/snippets/header-top.html:87
+msgid "Journal"
+msgstr "Jurnal"
+
+#: darisset/templates/snippets/header-top.html:93
+#: darisset/templates/snippets/header-top.html:97
+#, fuzzy
+#| msgid "interaction"
+msgid "Education"
+msgstr "Edukasi"
+
+#: darisset/templates/snippets/header-top.html:103
+#: darisset/templates/snippets/header-top.html:107
+msgid "Entertaiment"
+msgstr "Entertaiment"
+
+#: darisset/templates/snippets/header-top.html:113
+#: darisset/templates/snippets/header-top.html:117
+msgid "Technology"
+msgstr "Teknologi"
+
+#: darisset/templates/snippets/header-top.html:123
+#: darisset/templates/snippets/header-top.html:127
+msgid "News"
+msgstr "Berita"
+
+#: darisset/templates/snippets/header-top.html:133
+#: darisset/templates/snippets/header-top.html:137
+msgid "Politics"
+msgstr "Politik"
+
+#: darisset/templates/snippets/header-top.html:153
+msgid "Bokmarks"
+msgstr "Penanda"
+
+#: darisset/templates/snippets/header-top.html:156
+msgid "Logout"
+msgstr "Keluar"
+
+#: darisset/templates/socialaccount/authentication_error.html:5
+#: darisset/templates/socialaccount/authentication_error.html:8
+msgid "Social Network Login Failure"
+msgstr "Kegagalan Masuk Melalui Fitur Jaringan Sosial"
+
+#: darisset/templates/socialaccount/authentication_error.html:10
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr ""
+"Terjadi kesalahan saat mencoba masuk melalui akun jejaring sosial Anda."
+
+#: darisset/templates/socialaccount/connections.html:5
+#: darisset/templates/socialaccount/connections.html:8
+msgid "Account Connections"
+msgstr "Koneksi Akun"
+
+#: darisset/templates/socialaccount/connections.html:11
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+"Anda dapat masuk ke akun Anda menggunakan salah satu akun pihak ketiga "
+"berikut:"
+
+#: darisset/templates/socialaccount/connections.html:43
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+"Saat ini Anda tidak memiliki akun jejaring sosial yang terhubung ke akun ini."
+
+#: darisset/templates/socialaccount/connections.html:46
+msgid "Add a 3rd Party Account"
+msgstr "Tambahkan Akun Pihak Ketiga"
+
+#: darisset/templates/socialaccount/login_cancelled.html:5
+#: darisset/templates/socialaccount/login_cancelled.html:9
+msgid "Login Cancelled"
+msgstr "Proses Masuk Dibatalkan"
+
+#: darisset/templates/socialaccount/login_cancelled.html:13
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
+"\">sign in</a>."
+msgstr ""
+"Anda memutuskan untuk membatalkan masuk ke situs kami menggunakan salah satu "
+"akun Anda yang ada. Jika ini suatu kesalahan, lanjutkan ke <a href="
+"\"%(login_url)s\">masuk</a>."
+
+#: darisset/templates/socialaccount/messages/account_connected.txt:2
+msgid "The social account has been connected."
+msgstr "Akun sosial telah terhubung."
+
+#: darisset/templates/socialaccount/messages/account_connected_other.txt:2
+msgid "The social account is already connected to a different account."
+msgstr "Akun sosial sudah terhubung ke akun lain."
+
+#: darisset/templates/socialaccount/messages/account_disconnected.txt:2
+msgid "The social account has been disconnected."
+msgstr "Akun sosial telah terputus."
+
+#: darisset/templates/socialaccount/signup.html:5
+msgid "Signup"
+msgstr "Daftar"
+
+#: darisset/templates/socialaccount/signup.html:10
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
+"Anda akan menggunakan akun %(provider_name)s anda untuk login ke\n"
+"%(site_name)s. Sebagai langkah terakhir, silakan isi formulir berikut:"
+
+#: darisset/templates/widget/image.html:2
+msgid "Currently:"
+msgstr "Saat ini:"
+
+#: darisset/templates/widget/image.html:4
+msgid "Change:"
+msgstr "Perubahan:"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/forms.py:8
+msgid "Search files"
+msgstr "Search files"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
+msgid "Select an image to embed"
+msgstr "Pilih gambar untuk disematkan"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr ""
+"Jelajahi gambar yang Anda inginkan, lalu klik 'Tanamkan Gambar' untuk "
+"melanjutkan ..."
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr ""
+"Tidak ada gambar yang ditemukan. Unggah gambar menggunakan dialog 'Tombol "
+"Gambar' 'Unggah'tab."
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:50
+msgid "Images in: "
+msgstr "Gambar di"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:62
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:80
+msgid "Embed Image"
+msgstr "Embed Image"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:146
+msgid "Play Slideshow"
+msgstr "Play Slideshow"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:147
+msgid "Pause Slideshow"
+msgstr "Jeda Slideshow"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr "Foto sebelumnya"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr "Foto Selanjutnya &rsaquo;"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:150
+msgid "Next &rsaquo;"
+msgstr "Lanjut &rsaquo;"
+
+#: env/lib/python3.6/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:151
+msgid "&lsaquo; Prev"
+msgstr "&lsaquo; Sebelumnya"
+
+#: env/lib/python3.6/site-packages/crispy_forms/tests/test_form_helper.py:129
+#: env/lib/python3.6/site-packages/crispy_forms/tests/test_form_helper.py:139
+#: env/lib/python3.6/site-packages/django/forms/fields.py:53
+msgid "This field is required."
+msgstr "This field is required."
+
+#: env/lib/python3.6/site-packages/crispy_forms/tests/test_layout.py:360
+msgid "i18n text"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/crispy_forms/tests/test_layout.py:360
+msgid "i18n legend"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/crispy_forms/tests/test_layout_objects.py:129
+#: env/lib/python3.6/site-packages/django/core/validators.py:31
+msgid "Enter a valid value."
+msgstr "Enter a valid value."
+
+#: env/lib/python3.6/site-packages/django/contrib/messages/apps.py:7
+#, fuzzy
+#| msgid "Message"
+msgid "Messages"
+msgstr "Pesan"
+
+#: env/lib/python3.6/site-packages/django/contrib/sitemaps/apps.py:7
+msgid "Site Maps"
+msgstr "Peta Situs"
+
+#: env/lib/python3.6/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr "Sindikasi"
+
+#: env/lib/python3.6/site-packages/django/core/paginator.py:45
+msgid "That page number is not an integer"
+msgstr "Nomor halaman itu bukan bilangan bulat"
+
+#: env/lib/python3.6/site-packages/django/core/paginator.py:47
+msgid "That page number is less than 1"
+msgstr "Nomor halaman itu kurang dari 1"
+
+#: env/lib/python3.6/site-packages/django/core/paginator.py:52
+msgid "That page contains no results"
+msgstr "Halaman itu tidak mengandung hasil"
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:102
+#: env/lib/python3.6/site-packages/django/forms/fields.py:658
+msgid "Enter a valid URL."
+msgstr "Masukkan URL yang valid."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:154
+msgid "Enter a valid integer."
+msgstr "Masukkan bilangan bulat yang valid."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:165
+#, fuzzy
+#| msgid "E-mail address"
+msgid "Enter a valid email address."
+msgstr "Enter a valid email address."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: env/lib/python3.6/site-packages/django/core/validators.py:239
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Masukkan 'slug' yang valid yang terdiri dari huruf, angka, garis bawah atau "
+"tanda hubung."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:246
+msgid ""
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+"Masukkan 'slug' yang valid yang terdiri dari huruf Unicode, angka, garis "
+"bawah, atautanda hubung."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:255
+#: env/lib/python3.6/site-packages/django/core/validators.py:275
+msgid "Enter a valid IPv4 address."
+msgstr "Masukkan alamat IPv4 yang valid."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:260
+#: env/lib/python3.6/site-packages/django/core/validators.py:276
+msgid "Enter a valid IPv6 address."
+msgstr "Masukkan alamat IPv6 yang valid."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:270
+#: env/lib/python3.6/site-packages/django/core/validators.py:274
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr "Masukkan alamat IPv4 atau IPv6 yang valid."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:304
+msgid "Enter only digits separated by commas."
+msgstr "Masukkan hanya digit yang dipisahkan oleh koma."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:310
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "Pastikan nilai ini adalah %(limit_value)s (it is %(show_value)s)."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:342
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Pastikan nilai ini kurang dari atau sama dengan %(limit_value)s."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:351
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Pastikan nilai ini lebih besar dari atau sama dengan %(limit_value)s."
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:361
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:376
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:395
+#: env/lib/python3.6/site-packages/django/forms/fields.py:290
+#: env/lib/python3.6/site-packages/django/forms/fields.py:325
+#, fuzzy
+#| msgid "Enter to name"
+msgid "Enter a number."
+msgstr "Masukan nama anda"
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:397
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:402
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:407
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:469
+#, python-format
+msgid ""
+"File extension '%(extension)s' is not allowed. Allowed extensions are: "
+"'%(allowed_extensions)s'."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/core/validators.py:521
+msgid "Null characters are not allowed."
+msgstr "Karakter kosong tidak diizinkan."
+
+#: env/lib/python3.6/site-packages/django/db/models/base.py:1162
+#: env/lib/python3.6/site-packages/django/forms/models.py:756
+msgid "and"
+msgstr "dan"
+
+#: env/lib/python3.6/site-packages/django/db/models/base.py:1164
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr "%(model_name)s with this %(field_labels)s already exists."
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:104
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:105
+msgid "This field cannot be null."
+msgstr "Bidang ini tidak boleh nol."
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:106
+msgid "This field cannot be blank."
+msgstr "Bidang ini tidak boleh kosong."
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:107
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:111
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:128
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:905
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1772
+msgid "Integer"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:909
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1770
+#, python-format
+msgid "'%(value)s' value must be an integer."
+msgstr "'%(value)s' nilai harus berupa bilangan bulat."
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:984
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1850
+msgid "Big (8 byte) integer"
+msgstr "Bilangan bulat besar (8 byte)"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:996
+#, python-format
+msgid "'%(value)s' value must be either True or False."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:997
+#, python-format
+msgid "'%(value)s' value must be either True, False, or None."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:999
+msgid "Boolean (Either True or False)"
+msgstr "Boolean (Baik Benar atau Salah)"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1040
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1104
+msgid "Comma-separated integers"
+msgstr "Bilangan bulat yang dipisahkan koma"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1153
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1155
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1298
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1158
+msgid "Date (without time)"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1296
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1300
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1304
+msgid "Date (with time)"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1452
+#, python-format
+msgid "'%(value)s' value must be a decimal number."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1454
+msgid "Decimal number"
+msgstr "Angka desimal"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1593
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1596
+#, fuzzy
+#| msgid "interaction"
+msgid "Duration"
+msgstr "interaksi"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1646
+#, fuzzy
+#| msgid "E-mail address"
+msgid "Email address"
+msgstr "Alamat Email"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1669
+msgid "File path"
+msgstr "Jalur file"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1735
+#, python-format
+msgid "'%(value)s' value must be a float."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1737
+msgid "Floating point number"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1866
+#, fuzzy
+#| msgid "E-mail Addresses"
+msgid "IPv4 address"
+msgstr "Alamat Email"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1897
+#, fuzzy
+#| msgid "E-mail Addresses"
+msgid "IP address"
+msgstr "Alamat Email"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1977
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1978
+#, python-format
+msgid "'%(value)s' value must be either None, True or False."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1980
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2015
+msgid "Positive integer"
+msgstr "Positive integer"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2028
+msgid "Positive small integer"
+msgstr "Bilangan bulat kecil positif"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2042
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2074
+msgid "Small integer"
+msgstr "Bilangan bulat kecil"
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2109
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2111
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2114
+msgid "Time"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2240
+msgid "URL"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2262
+msgid "Raw binary data"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2312
+#, python-format
+msgid "'%(value)s' is not a valid UUID."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2314
+msgid "Universally unique identifier"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/files.py:221
+msgid "File"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/files.py:360
+msgid "Image"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/related.py:778
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/related.py:780
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/related.py:1007
+msgid "One-to-one relationship"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/related.py:1057
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/related.py:1058
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/db/models/fields/related.py:1100
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: env/lib/python3.6/site-packages/django/forms/boundfield.py:146
+msgid ":?.!"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:245
+#, fuzzy
+#| msgid "Enter to name"
+msgid "Enter a whole number."
+msgstr "Masukan nama anda"
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:396
+#: env/lib/python3.6/site-packages/django/forms/fields.py:1126
+msgid "Enter a valid date."
+msgstr "Masukkan tanggal yang valid."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:420
+#: env/lib/python3.6/site-packages/django/forms/fields.py:1127
+#, fuzzy
+#| msgid "Enter to name"
+msgid "Enter a valid time."
+msgstr "Masukan nama anda"
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:442
+msgid "Enter a valid date/time."
+msgstr "Masukkan tanggal / waktu yang valid."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:471
+msgid "Enter a valid duration."
+msgstr "Masukkan durasi yang valid."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:472
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "Jumlah hari harus antara {min_days} dan {max_days}."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:532
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+"Tidak ada file yang dikirimkan. Periksa jenis penyandian pada formulir."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:533
+msgid "No file was submitted."
+msgstr "Tidak ada file yang dikirimkan."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:534
+msgid "The submitted file is empty."
+msgstr "File yang dikirimkan kosong."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:536
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:539
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+"Harap kirimkan file atau centang kotak centang yang jelas, bukan keduanya."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:600
+#: env/lib/python3.6/site-packages/sorl/thumbnail/fields.py:43
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+"Unggah gambar yang valid. File yang Anda unggah bukan gambar atauGambar "
+"rusak."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:762
+#: env/lib/python3.6/site-packages/django/forms/fields.py:852
+#: env/lib/python3.6/site-packages/django/forms/models.py:1270
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+"Pilih pilihan yang valid. %(value)s bukan salah satu pilihan yang tersedia."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:853
+#: env/lib/python3.6/site-packages/django/forms/fields.py:968
+#: env/lib/python3.6/site-packages/django/forms/models.py:1269
+#, fuzzy
+#| msgid "Enter to name"
+msgid "Enter a list of values."
+msgstr "Masukan nama anda"
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:969
+msgid "Enter a complete value."
+msgstr "Masukkan nilai yang lengkap."
+
+#: env/lib/python3.6/site-packages/django/forms/fields.py:1185
+msgid "Enter a valid UUID."
+msgstr "Masukkan UUID yang valid."
+
+#. Translators: This is the default suffix added to form field labels
+#: env/lib/python3.6/site-packages/django/forms/forms.py:86
+msgid ":"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/forms/forms.py:212
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/forms/formsets.py:91
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr "Data ManagementForm hilang atau telah dirusak"
+
+#: env/lib/python3.6/site-packages/django/forms/formsets.py:338
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/forms/formsets.py:345
+#, python-format
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/forms/formsets.py:371
+#: env/lib/python3.6/site-packages/django/forms/formsets.py:373
+msgid "Order"
+msgstr "Memesan"
+
+#: env/lib/python3.6/site-packages/django/forms/formsets.py:375
+msgid "Delete"
+msgstr "Hapus"
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:751
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "Harap perbaiki data duplikat untuk %(field)s."
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:755
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr "Harap perbaiki data duplikat untuk %(field)s, yang harus unik."
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:761
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:770
+msgid "Please correct the duplicate values below."
+msgstr "Harap perbaiki nilai duplikat di bawah ini."
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:1091
+msgid "The inline value did not match the parent instance."
+msgstr "Nilai inline tidak cocok dengan instance induk."
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:1158
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+"Pilih pilihan yang valid. Pilihan itu bukan salah satu pilihan yang tersedia."
+
+#: env/lib/python3.6/site-packages/django/forms/models.py:1272
+#, python-format
+msgid "\"%(pk)s\" is not a valid value."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/forms/utils.py:162
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/forms/widgets.py:395
+msgid "Clear"
+msgstr "Bersih"
+
+#: env/lib/python3.6/site-packages/django/forms/widgets.py:396
+#, fuzzy
+#| msgid "Currently:"
+msgid "Currently"
+msgstr "Saat ini:"
+
+#: env/lib/python3.6/site-packages/django/forms/widgets.py:711
+msgid "Unknown"
+msgstr "Tidak dikenal"
+
+#: env/lib/python3.6/site-packages/django/forms/widgets.py:712
+msgid "Yes"
+msgstr "Iya"
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:788
+msgid "yes,no,maybe"
+msgstr "ya Tidak mungkin"
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:817
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:834
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:836
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:838
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:840
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:842
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/template/defaultfilters.py:844
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dateformat.py:62
+msgid "p.m."
+msgstr "p.m"
+
+#: env/lib/python3.6/site-packages/django/utils/dateformat.py:63
+msgid "a.m."
+msgstr "a.m"
+
+#: env/lib/python3.6/site-packages/django/utils/dateformat.py:68
+msgid "PM"
+msgstr "PM"
+
+#: env/lib/python3.6/site-packages/django/utils/dateformat.py:69
+msgid "AM"
+msgstr "AM"
+
+#: env/lib/python3.6/site-packages/django/utils/dateformat.py:150
+msgid "midnight"
+msgstr "tengah malam"
+
+#: env/lib/python3.6/site-packages/django/utils/dateformat.py:152
+msgid "noon"
+msgstr "tengah hari"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr "Senin"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr "Selasa"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr "rabu"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr "Kamis"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr "Juma'at"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr "Sabtu"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr "Minggu"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Mon"
+msgstr "Sen"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr "Sel"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr "Rab"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr "Kam"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr "Jum"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr "Sab"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr "Ming"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "January"
+msgstr "Januari"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "February"
+msgstr "Februari"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "March"
+msgstr "Maret"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "April"
+msgstr "April"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "May"
+msgstr "Mei"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "June"
+msgstr "Juni"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "July"
+msgstr "Juli"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "August"
+msgstr "Agustus"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:15
+#, fuzzy
+#| msgid "Remember Me"
+msgid "September"
+msgstr "Ingat Saya"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "October"
+msgstr "Oktober"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "November"
+msgstr "November"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:16
+#, fuzzy
+#| msgid "Remember Me"
+msgid "December"
+msgstr "Ingat Saya"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "jan"
+msgstr "jan"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "feb"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "mar"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "apr"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "may"
+msgstr "mei"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "jun"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "jul"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "aug"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "sep"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:20
+#, fuzzy
+#| msgid "Contact"
+msgid "oct"
+msgstr "okt"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "nov"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "dec"
+msgstr "des"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:23
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:24
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:25
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Maret"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:26
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:27
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Mei"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:28
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "Juni"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:29
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "Juli"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:30
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr "Agust"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr "Sept."
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr "Okt"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr "Des"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:37
+msgctxt "alt. month"
+msgid "January"
+msgstr "Januari"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:38
+msgctxt "alt. month"
+msgid "February"
+msgstr "Februari"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:39
+msgctxt "alt. month"
+msgid "March"
+msgstr "Maret"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:40
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:41
+msgctxt "alt. month"
+msgid "May"
+msgstr "Mei"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:42
+msgctxt "alt. month"
+msgid "June"
+msgstr "Juni"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:43
+msgctxt "alt. month"
+msgid "July"
+msgstr "Juli"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:44
+msgctxt "alt. month"
+msgid "August"
+msgstr "Agustus"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:45
+#, fuzzy
+#| msgid "Remember Me"
+msgctxt "alt. month"
+msgid "September"
+msgstr "Ingat Saya"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "October"
+msgstr "Oktober"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "November"
+msgstr "November"
+
+#: env/lib/python3.6/site-packages/django/utils/dates.py:48
+#, fuzzy
+#| msgid "Remember Me"
+msgctxt "alt. month"
+msgid "December"
+msgstr "Ingat Saya"
+
+#: env/lib/python3.6/site-packages/django/utils/ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr "Ini bukan alamat IPv6 yang valid."
+
+#: env/lib/python3.6/site-packages/django/utils/text.py:67
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/utils/text.py:233
+msgid "or"
+msgstr "atau"
+
+#. Translators: This string is used as a separator between list elements
+#: env/lib/python3.6/site-packages/django/utils/text.py:252
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:83
+msgid ", "
+msgstr ", "
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+
+#: env/lib/python3.6/site-packages/django/utils/timesince.py:72
+msgid "0 minutes"
+msgstr "0 menit"
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:110
+msgid "Forbidden"
+msgstr "Terlarang"
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:111
+msgid "CSRF verification failed. Request aborted."
+msgstr "CSRF verification failed. Request aborted."
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:115
+msgid ""
+"You are seeing this message because this HTTPS site requires a 'Referer "
+"header' to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+"Anda melihat pesan ini karena situs HTTPS ini memerlukan 'Perujuktajuk "
+"'untuk dikirim oleh browser Web Anda, tetapi tidak ada yang dikirim. Header "
+"ini diperlukan karena alasan keamanan, untuk memastikan bahwa browser Anda "
+"tidak sedangDibajak oleh pihak ketiga."
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:120
+msgid ""
+"If you have configured your browser to disable 'Referer' headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for 'same-"
+"origin' requests."
+msgstr ""
+"Jika Anda telah mengkonfigurasi browser Anda untuk menonaktifkan header "
+"'Referer', silakan kembaliaktifkan mereka, setidaknya untuk situs ini, atau "
+"untuk koneksi HTTPS, atau untuk 'sama-permintaan asal."
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:124
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
+"CSRF protection requires the 'Referer' header to do strict referer checking. "
+"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" ...> for links to third-party sites."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:132
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+"Anda melihat pesan ini karena situs ini memerlukan cookie CSRF "
+"ketikamengirimkan formulir. Cookie ini diperlukan untuk alasan keamanan, "
+"untuk memastikanBahwa peramban Anda tidak dibajak oleh pihak ketiga."
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:137
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for 'same-origin' requests."
+msgstr ""
+"Jika Anda telah mengkonfigurasi browser Anda untuk menonaktifkan cookie, "
+"silakan aktifkan kembalimereka, setidaknya untuk situs ini, atau untuk "
+"permintaan 'asal yang sama'."
+
+#: env/lib/python3.6/site-packages/django/views/csrf.py:142
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:41
+msgid "No year specified"
+msgstr "Tidak ada tahun yang ditentukan"
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:61
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:111
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:208
+msgid "Date out of range"
+msgstr "Tanggal di luar jangkauan"
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:90
+msgid "No month specified"
+msgstr "Tidak ditentukan bulan"
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:142
+msgid "No day specified"
+msgstr "hari tidak ditentukan"
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:188
+msgid "No week specified"
+msgstr "Minggu tidak ditentukan"
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:338
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:367
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:589
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/generic/dates.py:623
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/generic/detail.py:54
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/generic/list.py:67
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr "Halaman bukan 'terakhir', juga tidak dapat dikonversi ke int."
+
+#: env/lib/python3.6/site-packages/django/views/generic/list.py:72
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/generic/list.py:154
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/static.py:40
+msgid "Directory indexes are not allowed here."
+msgstr "Indeks direktori tidak diizinkan di sini."
+
+#: env/lib/python3.6/site-packages/django/views/static.py:42
+#, python-format
+msgid "\"%(path)s\" does not exist"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/static.py:80
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:6
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr "Django: kerangka kerja Web untuk perfeksionis dengan tenggat waktu."
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:345
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:367
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:368
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:383
+msgid "Django Documentation"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:384
+msgid "Topics, references, &amp; how-to's"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:395
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:396
+msgid "Get started with Django"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:407
+msgid "Django Community"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:408
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/jsonfield/fields.py:22
+#, python-format
+msgid "'%s' is not a valid JSON string."
+msgstr ""
+
+#~ msgid "Business"
+#~ msgstr "Bisnis"
+
+#~ msgid "Health"
+#~ msgstr "Kesehatan"
+
+#~ msgid "Design"
+#~ msgstr "Desain"

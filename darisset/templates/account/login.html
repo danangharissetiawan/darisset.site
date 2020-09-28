@@ -1,0 +1,117 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% load i18n %}
+
+{% block head_links %} 
+
+<title>{% trans "Login" %}</title>
+
+{% endblock %}
+
+{% block head_title %}{% trans "Sign In" %} {% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+ {% block messages %}
+    {% if messages %}
+    <div>
+        <ul>
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if form.errors %}
+      {% for field in form %}
+        {% for error in field.errors %}
+          <div class="alert alert-danger alert-mg-b">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>{{error|escape}}</strong>.
+          </div>
+        {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+    {% endif %}
+  {% endblock %}
+
+  <form class="login100-form validate-form" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+      <span class="login100-form-title p-b-10 m-3">
+          {% trans "Welcome" %}
+      </span>
+      <span class="login100-form-avatar">
+          <img src="{% static 'images/gambar-profil-png-3.png' %}" alt="AVATAR">
+      </span>
+
+      <div class="wrap-input100 validate-input m-t-20 m-b-20" data-validate="Enter username">
+          <input class="input100" type="text" name="{{form.login.name}}" placeholder="Username" autofocus="autofocus" maxlength="150" required id="id_login">
+          <span class="focus-input100" data-placeholder="Username"></span>
+      </div>
+
+      <div class="wrap-input100 validate-input m-b-30" data-validate="Enter password">
+          <input class="input100" type="password" name="{{form.password.name}}" placeholder="Password" required id="id_password">
+          <span class="focus-input100" data-placeholder="Password"></span>
+      </div>
+      <div class=" m-b-20">
+        <label for="{{form.remember.id_for_label}}">{% trans "Remember Me" %}:</label> <input type="checkbox" name="{{form.remember.name}}" id="{{form.remember.id_for_label}}">
+      </div>
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %} 
+
+      <div class="container-login100-form-btn">
+          <button class="login100-form-btn">
+              {% trans "Sign In" %}
+          </button>
+      </div>
+      <div class=" justify-content-center">
+      {% load account socialaccount %}
+        {% get_providers as socialaccount_providers %}
+        {% for provider in socialaccount_providers %}
+      
+            <a title="{{provider.name}}" class="btn btn-outline-dark ml-3 mr-1 mt-3" 
+            href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><i class="icon-{{provider.name}}" id="social_icon"></i>{{provider.name}}</a>
+            
+        {% endfor %}
+        
+      </div>
+
+      <ul class="login-more p-t-50">
+          <li class="m-b-8">
+              <span class="txt1">
+                  {% trans "Forgot " %}
+              </span>
+
+              <a href="{% url 'account_reset_password' %}" class="txt2">
+                  {% trans " Password ?" %}
+              </a>
+          </li>
+
+          <li>
+              <span class="txt1">
+                  {% trans "Don’t have an account?" %}
+              </span>
+
+              <a href="{% url 'account_signup' %}" class="txt2">
+                  {% trans "Sign up" %}
+              </a>
+          </li>
+      </ul>
+      
+  </form>
+
+</div>
+{% endblock %}

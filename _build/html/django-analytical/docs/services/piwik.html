@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piwik (deprecated) – open source web analytics &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="piwik-deprecated-open-source-web-analytics">
+<h1>Piwik (deprecated) – open source web analytics<a class="headerlink" href="#piwik-deprecated-open-source-web-analytics" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.piwik.org/">Piwik</a> is an open analytics platform currently used by individuals,
+companies and governments all over the world.  With Piwik, your data
+will always be yours, because you run your own analytics server.</p>
+<div class="section" id="deprecated">
+<h2>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h2>
+<p>Note that Piwik is now known as Matomo.  New projects should use the
+Matomo integration.  The Piwik integration in django-analytical is
+deprecated and eventually will be removed.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the Piwik integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the Piwik template tag to your templates.  This
+step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#piwik-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The Piwik tracking code is inserted into templates using a template
+tag.  Load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">piwik</span></code> template tag library and insert the
+<a href="#id3"><span class="problematic" id="id4">:ttag:`piwik`</span></a> tag.  Because every page that you want to track must
+have the tag, it is useful to add it to your base template.  Insert
+the tag at the bottom of the HTML body as recommended by the
+<a class="reference external" href="http://piwik.org/integrate/how-to/">Piwik best practice for Integration Plugins</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">piwik</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">piwik</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="piwik-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the Piwik integration, you must first define
+domain name and optional URI path to your Piwik server, as well as
+the Piwik ID of the website you’re tracking with your Piwik server,
+in your project settings.</p>
+<div class="section" id="setting-the-domain">
+<h3>Setting the domain<a class="headerlink" href="#setting-the-domain" title="Permalink to this headline">¶</a></h3>
+<p>Your Django project needs to know where your Piwik server is located.
+Typically, you’ll have Piwik installed on a subdomain of its own
+(e.g. <code class="docutils literal notranslate"><span class="pre">piwik.example.com</span></code>), otherwise it runs in a subdirectory of
+a website of yours (e.g. <code class="docutils literal notranslate"><span class="pre">www.example.com/piwik</span></code>).  Set
+<code class="xref py py-const docutils literal notranslate"><span class="pre">PIWIK_DOMAIN_PATH</span></code> in the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file
+accordingly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PIWIK_DOMAIN_PATH</span> <span class="o">=</span> <span class="s1">&#39;piwik.example.com&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set a domain the tracking code will not be rendered.</p>
+</div>
+<div class="section" id="setting-the-site-id">
+<h3>Setting the site ID<a class="headerlink" href="#setting-the-site-id" title="Permalink to this headline">¶</a></h3>
+<p>Your Piwik server can track several websites.  Each website has its
+site ID (this is the <code class="docutils literal notranslate"><span class="pre">idSite</span></code> parameter in the query string of your
+browser’s address bar when you visit the Piwik Dashboard).  Set
+<code class="xref py py-const docutils literal notranslate"><span class="pre">PIWIK_SITE_ID</span></code> in the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file to
+the value corresponding to the website you’re tracking:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PIWIK_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set the site ID the tracking code will not be rendered.</p>
+</div>
+<div class="section" id="user-variables">
+<span id="piwik-uservars"></span><h3>User variables<a class="headerlink" href="#user-variables" title="Permalink to this headline">¶</a></h3>
+<p>Piwik supports sending <a class="reference external" href="http://developer.piwik.org/guides/tracking-javascript-guide#custom-variables">custom variables</a> along with default statistics. If
+you want to set a custom variable, use the context variable <code class="docutils literal notranslate"><span class="pre">piwik_vars</span></code> when
+you render your template. It should be an iterable of custom variables
+represented by tuples like: <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">name,</span> <span class="pre">value[,</span> <span class="pre">scope])</span></code>, where scope may
+be <code class="docutils literal notranslate"><span class="pre">'page'</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">'visit'</span></code>. <code class="docutils literal notranslate"><span class="pre">index</span></code> should be an integer and the
+other parameters should be strings.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">({</span>
+    <span class="s1">&#39;piwik_vars&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;Sir Lancelot of Camelot&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;To seek the Holy Grail&#39;</span><span class="p">,</span> <span class="s1">&#39;page&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">)]</span>
+<span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Piwik default settings allow up to 5 custom variables for both scope. Variable
+mapping between index and name must stay constant, or the latest name
+override the previous one.</p>
+<p>If you use the same user variables in different views and its value can
+be computed from the HTTP request, you can also set them in a context
+processor that you add to the <code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list
+in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>.</p>
+</div>
+<div class="section" id="user-tracking">
+<span id="piwik-user-tracking"></span><h3>User tracking<a class="headerlink" href="#user-tracking" title="Permalink to this headline">¶</a></h3>
+<p>If you use the standard Django authentication system, you can allow Piwik to
+<a class="reference external" href="http://developer.piwik.org/guides/tracking-javascript-guide#user-id">track individual users</a> by setting the <a class="reference internal" href="../settings.html#ANALYTICAL_AUTO_IDENTIFY" title="ANALYTICAL_AUTO_IDENTIFY"><code class="xref py py-data docutils literal notranslate"><span class="pre">ANALYTICAL_AUTO_IDENTIFY</span></code></a>
+setting to <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>. This is enabled by default. Piwik will identify
+users based on their <code class="docutils literal notranslate"><span class="pre">username</span></code>.</p>
+<p>If you disable this settings, or want to customize what user id to use, you can
+set the context variable <code class="docutils literal notranslate"><span class="pre">analytical_identity</span></code> (for global configuration) or
+<code class="docutils literal notranslate"><span class="pre">piwik_identity</span></code> (for Piwik specific configuration). Setting one to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> will disable the user tracking feature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Piwik will identify this user as &#39;BDFL&#39; if ANALYTICAL_AUTO_IDENTIFY is True or unset</span>
+<span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;BDFL&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;van Rossum&#39;</span><span class="p">)</span>
+
+<span class="c1"># Piwik will identify this user as &#39;Guido van Rossum&#39;</span>
+<span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;BDFL&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;van Rossum&#39;</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">({</span>
+    <span class="s1">&#39;piwik_identity&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_full_name</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="c1"># Piwik will not identify this user (but will still collect statistics)</span>
+<span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;BDFL&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;van Rossum&#39;</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">({</span>
+    <span class="s1">&#39;piwik_identity&#39;</span><span class="p">:</span> <span class="kc">None</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disabling-cookies">
+<h3>Disabling cookies<a class="headerlink" href="#disabling-cookies" title="Permalink to this headline">¶</a></h3>
+<p>If you want to <a class="reference external" href="https://matomo.org/faq/general/faq_157/">disable cookies</a>, set <code class="xref py py-data docutils literal notranslate"><span class="pre">PIWIKI_DISABLE_COOKIES</span></code> to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>. This is disabled by default.</p>
+</div>
+<div class="section" id="internal-ip-addresses">
+<h3>Internal IP addresses<a class="headerlink" href="#internal-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Usually, you do not want to track clicks from your development or
+internal IP addresses.  By default, if the tags detect that the client
+comes from any address in the <a class="reference internal" href="../settings.html#ANALYTICAL_INTERNAL_IPS" title="ANALYTICAL_INTERNAL_IPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">ANALYTICAL_INTERNAL_IPS</span></code></a> (which
+takes the value of <code class="xref py py-const docutils literal notranslate"><span class="pre">INTERNAL_IPS</span></code> by default) the tracking code
+is commented out.  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a> for important
+information about detecting the visitor IP address.</p>
+<hr class="docutils" />
+<p>Thanks go to Piwik for providing an excellent web analytics platform
+entirely for free!  Consider <a class="reference external" href="http://piwik.org/donate/">donating</a> to ensure that they continue
+their development efforts in the spirit of open source and freedom
+for our personal data.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/piwik.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+{{title}}
+{% endblock head_title %}
+
+{% block extra_styles %}
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+{% endblock extra_styles %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-lg-8">
+        <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+
+        <div class="g-recaptcha" data-sitekey="6LdF3_EUAAAAADZC6VkCvvqRmDRs8D7ei0LhD8Q_"></div>
+
+        <button type="submit" class="btn btn-secondary">{% trans "Submit" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock contents %}
+
+
+

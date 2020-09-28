@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olark – visitor chat &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="olark-visitor-chat">
+<h1>Olark – visitor chat<a class="headerlink" href="#olark-visitor-chat" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.olark.com/">Olark</a> is a lightweight tool to chat with visitors to your website using
+your existing instant messaging client.  Chat with your website visitors
+while they browse, using your mobile device or instant messenger.  Olark
+is fully customizable, supports multiple operators and keeps chat
+transcripts.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the Olark integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the Olark template tag to your templates.  This
+step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#olark-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The Olark Javascript code is inserted into templates using a template
+tag.  Load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">olark</span></code> template tag library and insert the
+<a href="#id3"><span class="problematic" id="id4">:ttag:`olark`</span></a> tag.  Because every page that you want to track
+must have the tag, it is useful to add it to your base template.  Insert
+the tag at the bottom of the HTML body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">olark</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">olark</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="olark-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the Olark integration, you must first set your site
+ID.  You can customize the visitor nickname and add information to their
+status in the operator buddy list, and customize the text used in the
+chat window.</p>
+<div class="section" id="setting-the-site-id">
+<h3>Setting the site ID<a class="headerlink" href="#setting-the-site-id" title="Permalink to this headline">¶</a></h3>
+<p>In order to install the chat code, you need to set your Olark site ID.
+The <a href="#id5"><span class="problematic" id="id6">:ttag:`olark`</span></a> tag will include it in the rendered Javascript code.
+You can find the site ID on <a class="reference external" href="https://www.olark.com/install">installation page</a> of you Olark account.
+Set <code class="xref py py-const docutils literal notranslate"><span class="pre">OLARK_SITE_ID</span></code> in the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OLARK_SITE_ID</span> <span class="o">=</span> <span class="s1">&#39;XXXX-XXX-XX-XXXX&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set the site ID, the chat window will not be rendered.</p>
+</div>
+<div class="section" id="setting-the-visitor-nickname">
+<h3>Setting the visitor nickname<a class="headerlink" href="#setting-the-visitor-nickname" title="Permalink to this headline">¶</a></h3>
+<p>If your website identifies visitors, you can use that to set their
+nickname in the operator buddy list. By default, the name and username
+of an authenticated user are automatically used to set the nickname.
+See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a>.</p>
+<p>You can also set the visitor nickname yourself by adding either the
+<code class="docutils literal notranslate"><span class="pre">olark_nickname</span></code> (alias: <code class="docutils literal notranslate"><span class="pre">olark_identity</span></code>) or the
+<code class="docutils literal notranslate"><span class="pre">analytical_identity</span></code> variable to the template context.  If both
+variables are set, the former takes precedence. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;olark_nickname&#39;</span><span class="p">:</span> <span class="n">nick</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you can derive the identity from the HTTP request, you can also use
+a context processor that you add to the
+<code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_olark_nickname</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;olark_nickname&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Just remember that if you set the same context variable in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> constructor and in a
+context processor, the latter clobbers the former.</p>
+<p>See also <a class="reference external" href="http://www.olark.com/documentation/javascript/api.chat.updateVisitorNickname">api.chat.updateVisitorNickname</a> in the Olark Javascript API
+documentation.</p>
+</div>
+<div class="section" id="adding-status-information">
+<h3>Adding status information<a class="headerlink" href="#adding-status-information" title="Permalink to this headline">¶</a></h3>
+<p>If you want to send more information about the visitor to the operators,
+you can add text snippets to the status field in the buddy list.  Set
+the <code class="docutils literal notranslate"><span class="pre">olark_status</span></code> context variable to a string or a list of strings
+and the <a href="#id7"><span class="problematic" id="id8">:ttag:`olark`</span></a> tag will pass them to Olark as status messages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;olark_status&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s1">&#39;has </span><span class="si">%d</span><span class="s1"> items in cart&#39;</span> <span class="o">%</span> <span class="n">cart</span><span class="o">.</span><span class="n">item_count</span><span class="p">,</span>
+    <span class="s1">&#39;value of items is $</span><span class="si">%0.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cart</span><span class="o">.</span><span class="n">total_value</span><span class="p">,</span>
+<span class="p">]})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See also <a class="reference external" href="http://www.olark.com/documentation/javascript/api.chat.updateVisitorStatus">api.chat.updateVisitorStatus</a> in the Olark Javascript API
+documentation.</p>
+</div>
+<div class="section" id="customizing-the-chat-window-messages">
+<h3>Customizing the chat window messages<a class="headerlink" href="#customizing-the-chat-window-messages" title="Permalink to this headline">¶</a></h3>
+<p>Olark lets you customize the appearance of the Chat window by changing
+location, colors and messages text.  While you can configure these on
+the Olark website, sometimes one set of messages is not enough.  For
+example, if you want to localize your website, you want to address every
+visitor in their own language.  Olark allows you to set the messages on
+a per-page basis, and the <a href="#id9"><span class="problematic" id="id10">:ttag:`olark`</span></a> tag supports this feature by way
+of the following context variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Context variable</p></th>
+<th class="head"><p>Example message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_welcome_title</span></code></p></td>
+<td><p>Click to Chat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_chatting_title</span></code></p></td>
+<td><p>Live Help: Now Chatting</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_unavailable_title</span></code></p></td>
+<td><p>Live Help: Offline</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_busy_title</span></code></p></td>
+<td><p>Live Help: Busy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_away_message</span></code></p></td>
+<td><p>Our live support feature is
+currently offline, Please
+try again later.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_loading_title</span></code></p></td>
+<td><p>Loading Olark…</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_welcome_message</span></code></p></td>
+<td><p>Welcome to my website.  You
+can use this chat window to
+chat with me.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_busy_message</span></code></p></td>
+<td><p>All of our representatives
+are with other customers at
+this time. We will be with
+you shortly.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_chat_input_text</span></code></p></td>
+<td><p>Type here and hit  to chat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_name_input_text</span></code></p></td>
+<td><p>and type your Name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_email_input_text</span></code></p></td>
+<td><p>and type your Email</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_offline_note_message</span></code></p></td>
+<td><p>We are offline, send us a
+message</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_send_button_text</span></code></p></td>
+<td><p>Send</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_offline_note_thankyou_text</span></code></p></td>
+<td><p>Thank you for your message.
+We will get back to you as
+soon as we can.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_offline_note_error_text</span></code></p></td>
+<td><p>You must complete all fields
+and specify a valid email
+address</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_offline_note_sending_text</span></code></p></td>
+<td><p>Sending…</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_operator_is_typing_text</span></code></p></td>
+<td><p>is typing…</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_operator_has_stopped_typing_text</span></code></p></td>
+<td><p>has stopped typing</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_introduction_error_text</span></code></p></td>
+<td><p>Please leave a name and email
+address so we can contact you
+in case we get disconnected</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">olark_introduction_messages</span></code></p></td>
+<td><p>Welcome, just fill out some
+brief information and click
+‘Start chat’ to talk to us</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">olark_introduction_submit_button_text</span></code></p></td>
+<td><p>Start chat</p></td>
+</tr>
+</tbody>
+</table>
+<p>As an example, you could set the texts site-wide base on the current
+language using a context processor that you add to the
+<code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OLARK_TEXTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;welcome title&#39;</span><span class="p">:</span>  <span class="s2">&quot;Click for Live Help&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;chatting_title&#39;</span><span class="p">:</span> <span class="s2">&quot;Live Help: Now chatting&quot;</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;nl&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;welcome title&#39;</span><span class="p">:</span>  <span class="s2">&quot;Klik voor online hulp&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;chatting_title&#39;</span><span class="p">:</span> <span class="s2">&quot;Online hulp: in gesprek&quot;</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">set_olark_texts</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">lang</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">LANGUAGE_CODE</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="n">OLARK_TEXTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">texts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">texts</span> <span class="o">=</span> <span class="n">OLARK_TEXTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">((</span><span class="s1">&#39;olark_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">texts</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>See also the Olark blog post on <a class="reference external" href="http://www.olark.com/blog/2010/olark-in-your-favorite-language/">supporting multiple languages</a>.</p>
+<hr class="docutils" />
+<p>Thanks go to Olark for their support with the development of this
+application.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/olark.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnapEngage – live chat &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="snapengage-live-chat">
+<h1>SnapEngage – live chat<a class="headerlink" href="#snapengage-live-chat" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.snapengage.com/">SnapEngage</a> is a live chat widget for your site which integrates with your
+existing chat client.  It integrates with many online applications and even
+allows you to make a remote screenshot of the webpage.  SnapEngage can be
+customized to fit your website look and feel, offers reports and statistics and
+is available in many languages.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the SnapEngage integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the SnapEngage template tag to your templates.
+This step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#snapengage-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The SnapEngage Javascript code is inserted into templates using a
+template tag.  Load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">SnapEngage</span></code> template tag library and
+insert the <a href="#id3"><span class="problematic" id="id4">:ttag:`SnapEngage`</span></a> tag.  Because every page that you want to
+track must have the tag, it is useful to add it to your base template.
+Insert the tag at the bottom of the HTML body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">snapengage</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">snapengage</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="snapengage-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the SnapEngage integration, you must first set the
+widget ID.  You can customize the visitor nickname and add information
+to their status in the operator buddy list, and customize the text used
+in the chat window.</p>
+<div class="section" id="setting-the-widget-id">
+<h3>Setting the widget ID<a class="headerlink" href="#setting-the-widget-id" title="Permalink to this headline">¶</a></h3>
+<p>In order to install the chat code, you need to set the ID of the
+SnapEngage widget.  You can find the site ID on the <a class="reference external" href="https://secure.snapengage.com/getwidgetid">Your Widget ID
+page</a> of your SnapEngage account.  Set <code class="xref py py-const docutils literal notranslate"><span class="pre">SNAPENGAGE_WIDGET_ID</span></code> in
+the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SNAPENGAGE_WIDGET_ID</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set the widget ID, the chat window will not be rendered.</p>
+</div>
+<div class="section" id="customizing-the-widget">
+<h3>Customizing the widget<a class="headerlink" href="#customizing-the-widget" title="Permalink to this headline">¶</a></h3>
+<p>The SnapEngage widget can be customized in various ways using either
+context variables or settings.  More information about controlling the
+widget can be found on the <a class="reference external" href="http://www.snapengage.com/faq#customization">customization FAQ section</a> of the
+SnapEngage website.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Context variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_DOMAIN</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_domain</span></code></p></td>
+<td><p>Manually set the domain name to follow users across subdomains.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_SECURE_CONNECTION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_secure_connection</span></code></p></td>
+<td><p>Force the use of SSL for the chat connection, even on unencrypted
+pages. (Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_BUTTON_EFFECT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_button_effect</span></code></p></td>
+<td><p>An effect applied when the mouse hovers over the button.
+(Example: <code class="docutils literal notranslate"><span class="pre">&quot;-4px&quot;</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_BUTTON_STYLE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_button_style</span></code></p></td>
+<td><p>What the chat button should look like. Use any of the
+<code class="xref py py-const docutils literal notranslate"><span class="pre">BUTTON_STYLE_*</span></code> constants, or a URL to a custom button
+image.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_BUTTON_LOCATION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_button_location</span></code></p></td>
+<td><p>The location of the chat button. Use any of the
+<code class="xref py py-const docutils literal notranslate"><span class="pre">BUTTON_LOCATION_*</span></code> constants.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_BUTTON_LOCATION_OFFSET</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_button_location_offset</span></code></p></td>
+<td><p>The offset of the button from the top or left side of the page.
+(Default: <code class="docutils literal notranslate"><span class="pre">&quot;55%&quot;</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_FORM_POSITION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_form_position</span></code></p></td>
+<td><p>Configure the location of the chat window. Use any of the
+<code class="xref py py-const docutils literal notranslate"><span class="pre">FORM_POSITION_*</span></code> constants.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_FORM_TOP_POSITION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_form_top_position</span></code></p></td>
+<td><p>The chat window offset in pixels from the top of the page.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_READONLY_EMAIL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_readonly_email</span></code></p></td>
+<td><p>Whether a preset e-mail address can be changed by the visitor.
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_SHOW_OFFLINE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_show_offline</span></code></p></td>
+<td><p>Whether to show the chat button when all operators are offline.
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_SCREENSHOTS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_screenshots</span></code></p></td>
+<td><p>Whether to allow the user to take a screenshot.
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_OFFLINE_SCREENSHOTS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_offline_screenshots</span></code></p></td>
+<td><p>Whether to allow the user to take a screenshot when all operators
+are offline. (Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SNAPENGAGE_SOUNDS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">snapengage_sounds</span></code></p></td>
+<td><p>Whether to play chat sound notifications. (Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are also two customizations that can only be used with context
+variables.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Context variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">snapengage_proactive_chat</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">False</span></code> to disable proactive
+chat, for example for users who are
+already converted.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">snapengage_email</span></code></p></td>
+<td><p>Set the e-mail address of the website
+visitor. (See <a class="reference internal" href="#snapengage-email"><span class="std std-ref">Setting the visitor e-mail address</span></a>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setting-the-visitor-e-mail-address">
+<span id="snapengage-email"></span><h3>Setting the visitor e-mail address<a class="headerlink" href="#setting-the-visitor-e-mail-address" title="Permalink to this headline">¶</a></h3>
+<p>If your website identifies visitors, you can use that to pass their e-mail
+address to the support agent.  By default, the e-mail address of an
+authenticated user is automatically used.  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a>.</p>
+<p>You can also set the visitor e-mail address yourself by adding either the
+<code class="docutils literal notranslate"><span class="pre">snapengage_email</span></code> (alias: <code class="docutils literal notranslate"><span class="pre">snapengage_identity</span></code>) or the
+<code class="docutils literal notranslate"><span class="pre">analytical_identity</span></code> variable to the template context.  If both
+variables are set, the former takes precedence. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">RequestContext</span><span class="p">({</span><span class="s1">&#39;snapengage_email&#39;</span><span class="p">:</span> <span class="n">email</span><span class="p">})</span>
+<span class="k">return</span> <span class="n">some_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you can derive the e-mail address from the HTTP request, you can also use
+a context processor that you add to the
+<code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code> list in <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">ObjectDoesNotExist</span>
+
+<span class="k">def</span> <span class="nf">set_snapengage_email</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_profile</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;snapengage_email&#39;</span><span class="p">:</span> <span class="n">profile</span><span class="o">.</span><span class="n">business_email</span><span class="p">}</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="n">ObjectDoesNotExist</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>Just remember that if you set the same context variable in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> constructor and in a
+context processor, the latter clobbers the former.</p>
+<p>If the user should not be able to edit the pre-set e-mail address, you
+can set either the <code class="docutils literal notranslate"><span class="pre">snapengage_readonly_email</span></code> context variable or the
+<a href="#id5"><span class="problematic" id="id6">:setting:`SNAPENGAGE_READONLY_EMAIL`</span></a> setting to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<hr class="docutils" />
+<p>Thanks go to SnapEngage for their support with the development of this
+application.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/snapengage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

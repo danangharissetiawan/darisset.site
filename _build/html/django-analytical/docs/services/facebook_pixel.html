@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Pixel – advertising analytics &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="facebook-pixel-advertising-analytics">
+<h1>Facebook Pixel – advertising analytics<a class="headerlink" href="#facebook-pixel-advertising-analytics" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://developers.facebook.com/docs/facebook-pixel/">Facebook Pixel</a> is Facebook’s tool for conversion tracking, optimisation and remarketing.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To start using the Facebook Pixel integration, you must have installed the
+django-analytical package and have added the <code class="docutils literal notranslate"><span class="pre">analytical</span></code> application
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> in your project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file.
+See <a class="reference internal" href="../install.html"><span class="doc">Installation and configuration</span></a> for details.</p>
+<p>Next you need to add the Facebook Pixel template tag to your templates.
+This step is only needed if you are not using the generic
+<a href="#id1"><span class="problematic" id="id2">:ttag:`analytical.*`</span></a> tags.  If you are, skip to
+<a class="reference internal" href="#facebook-pixel-configuration"><span class="std std-ref">Configuration</span></a>.</p>
+<p>The Facebook Pixel code is inserted into templates using template tags.
+Because every page that you want to track must have the tag,
+it is useful to add it to your base template.
+At the top of the template, load the <code class="xref py py-mod docutils literal notranslate"><span class="pre">facebook_pixel</span></code> template tag library.
+Then insert the <a href="#id3"><span class="problematic" id="id4">:ttag:`facebook_pixel_head`</span></a> tag at the bottom of the head section,
+and optionally insert the <a href="#id5"><span class="problematic" id="id6">:ttag:`facebook_pixel_body`</span></a> tag at the bottom of the body section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">facebook_pixel</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">facebook_pixel_head</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">facebook_pixel_body</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a href="#id7"><span class="problematic" id="id8">:ttag:`facebook_pixel_body`</span></a> tag code will only be used for browsers with JavaScript disabled.
+It can be omitted if you don’t need to support them.</p>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="facebook-pixel-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the Facebook Pixel integration,
+you must first set your Pixel ID.</p>
+<div class="section" id="setting-the-pixel-id">
+<span id="facebook-pixel-id"></span><h3>Setting the Pixel ID<a class="headerlink" href="#setting-the-pixel-id" title="Permalink to this headline">¶</a></h3>
+<p>Each Facebook Adverts account you have can have a Pixel ID,
+and the <code class="xref py py-mod docutils literal notranslate"><span class="pre">facebook_pixel</span></code> tags will include it in the rendered page.
+You can find the Pixel ID on the “Pixels” section of your Facebook Adverts account.
+Set <code class="xref py py-const docutils literal notranslate"><span class="pre">FACEBOOK_PIXEL_ID</span></code> in the project <code class="file docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FACEBOOK_PIXEL_ID</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXXXX&#39;</span>
+</pre></div>
+</div>
+<p>If you do not set a Pixel ID, the code will not be rendered.</p>
+</div>
+<div class="section" id="internal-ip-addresses">
+<span id="facebook-pixel-internal-ips"></span><h3>Internal IP addresses<a class="headerlink" href="#internal-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Usually you do not want to track clicks from your development or
+internal IP addresses.  By default, if the tags detect that the client
+comes from any address in the <code class="xref py py-const docutils literal notranslate"><span class="pre">FACEBOOK_PIXEL_INTERNAL_IPS</span></code>
+setting, the tracking code is commented out.  It takes the value of
+<a class="reference internal" href="../settings.html#ANALYTICAL_INTERNAL_IPS" title="ANALYTICAL_INTERNAL_IPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">ANALYTICAL_INTERNAL_IPS</span></code></a> by default (which in turn is
+<code class="xref py py-const docutils literal notranslate"><span class="pre">INTERNAL_IPS</span></code> by default).  See <a class="reference internal" href="../features.html#identifying-visitors"><span class="std std-ref">Identifying authenticated users</span></a> for
+important information about detecting the visitor IP address.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/django-analytical/docs/services/facebook_pixel.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

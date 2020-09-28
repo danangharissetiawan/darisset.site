@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Newsletter subscribe" %}{% endblock head_title %}
+
+{% block contents %}
+    <h1 class="text-dark">{% trans "Newsletter subscribe" %} {{ newsletter.title }}</h1>
+
+    {% if error %}
+        <p>{% trans "Due to a technical error we were not able to submit your confirmation email. This could be because your email address is invalid." %}</p>
+
+        <p>{% trans "If the error persists, please don't hesitate to contact us at the following email address:" %} <a href="mailto:administrator@darisset.site">administrator@darisset.site</a></p>
+    {% else %}
+        <form class="col-lg-6" enctype="multipart/form-data" method="post" action=".">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name_field">{% trans "Name:" %}</label>
+                <input type="text"
+                class="form-control" name="name_field" id="id_name_field" maxlength="30" aria-describedby="helpId" placeholder="{% trans "Enter to name" %}">
+                <small id="helpId" class="form-text text-muted">{% trans "Optional" %}</small>
+            </div>
+            <div class="form-group">
+                <label for="id_email_field">{% trans "Email:" %}</label>
+                <input type="email"
+                class="form-control" name="email_field" required id="id_email_field" placeholder="{% trans "Enter to email" %}">
+            </div>
+            <p><input class="btn btn-secondary" id="id_submit" name="submit" value="{% trans "Subscribe" %}" type="submit" /></p>
+        </form>
+    {% endif %}
+{% endblock contents %}

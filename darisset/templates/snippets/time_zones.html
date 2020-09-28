@@ -1,0 +1,35 @@
+{% load l10n %}
+{% load tz %}
+
+{% comment %} <div>
+    <h5>Time Zones</h5>
+    <p>Indonesia: <span id="time-tz">{{now|time:"H:i"}}</span></p>
+    <p>UTC: <span id="time-utc">{{now|utc|time:"H:i"}}</span></p>
+    <p>New York: <span id="time-ny">
+    {{now|timezone:"America/New_York"|time:"H:i"}}
+    </span></p>
+</div> {% endcomment %}
+<div class="clock m-auto" >
+    <div class="hour">
+        <div class="hr" id="hr"></div>
+    </div>
+    <div class="min">
+        <div class="mn" id="mn"></div>
+    </div>
+    <div class="sec">
+        <div class="sc" id="sc"></div>
+    </div>
+</div>
+{% comment %} <div class="text-center mt-4">
+    <div class="d-inline d-inline-flex mt-0 mb-0">
+    <p>IND: <span id="time-tz">{{now|time:"H:i"}}</span></p> |
+    <p>UTC: <span id="time-utc">{{now|utc|time:"H:i"}}</span></p> |
+    <p>NY: <span id="time-ny">
+    {{now|timezone:"America/New_York"|time:"H:i"}}
+    </span></p>
+    </div>
+    <p class="mt-0" id="local-date">{{today}}</p> <span>(local) </span>
+    <p>This is the time using your local information </p>
+    <p id="non-local-date">{{today|unlocalize}}</p> <span>(default)</span>
+    <p>This is the default time format</p>
+</div> {% endcomment %}

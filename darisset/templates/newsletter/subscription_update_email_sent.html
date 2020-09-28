@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Newsletter update" %}{% endblock head_title %}
+
+{% block contents %}
+    <h3 class="text-center text-dark">{% trans "Newsletter update" %} {{ newsletter.title }}</h3>
+
+    <p class="text-center">{% trans "Your update request was successfully received and an activation email has been sent to you. In that email you will find a link which you need to follow in order to update your subscription." %}</p>
+{% endblock contents %}

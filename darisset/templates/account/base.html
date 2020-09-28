@@ -1,0 +1,58 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--===============================================================================================-->
+    <title>{% block head_title %}
+{% endblock %}</title>
+<link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endcomment %}
+    {% include 'snippets/styles.html' %}
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <!--===============================================================================================-->
+    {% block head_links %}
+{% endblock %}
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            {% block content%}
+    
+	            {% block messages %}
+              {% endblock %}
+    
+            {% endblock %}
+    
+            {% block content_extra %}
+            {% endblock %}
+    
+            {% block extra_body %}
+            {% endblock %}
+        </div>
+    </div>
+
+{% comment %}     
+      {% block loader %}
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#7fff00" /></svg></div>
+  {% endblock loader %} {% endcomment %}
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <!-- <script src="js/login.js"></script> -->
+    {% include "snippets/scripts.html" %}
+
+</body>
+
+</html>

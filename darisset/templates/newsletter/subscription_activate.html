@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Newsletter" %} {{ newsletter.title }} {{ action }} {% trans "activate" %}{% endblock head_title %}
+
+{% block contents %}
+    <h1>{% trans "Newsletter" %} {{ newsletter.title }} {{ action }} {% trans "activate" %}</h1>
+
+    <form class="col-lg-6" enctype="multipart/form-data" method="post" action=".">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p><input class="btn btn-secondary" id="id_submit" name="submit" value="{% trans "Activate" %}" type="submit" /></p>
+    </form>
+{% endblock contents %}

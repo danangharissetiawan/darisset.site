@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Newsletter list" %}{% endblock head_title %}
+
+{% block contents %}
+{% if user.is_authenticated %}
+<form method="POST" action="">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <table class="table ">
+    <thead class="thead-inverse">
+      <tr>
+          <th>{% trans "Newsletter" %}</th>
+          {% if user %}
+          <th>{% trans "Subscribe" %}</th>
+          {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+    {% for form in formset.forms %}
+      <tr>
+        <td scope="row">{{ form.id }}{{ form.newsletter }}
+          <a href="{% url "newsletter_detail" form.instance.newsletter.slug %}">{{ form.instance.newsletter.title }}</a></td>
+        <td>{{ form.subscribed }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p><input id="id_submit" class="btn btn-secondary" name="submit" value="{% trans "Update subscriptions" %}" type="submit" /></p>
+</form>
+{% else %}
+<blockquote class="blockquote">
+    <p class="mb-0">{% trans "Newsletter" %}</p>
+    {% for newsletter in object_list %}
+    <footer class="blockquote-footer"> <cite title="Source Title"><a href="{% url "newsletter_detail" newsletter.slug %}">{{ newsletter.title }}</a></cite></footer>
+    {% endfor %}
+</blockquote>
+{% endif %}
+{% endblock contents %}

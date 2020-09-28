@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Darisset -- Developer -- @danangharis3
+
+# THANKS
+
+    Thank you to all my Blog readers, who encouraged me to continue learning to write and develop.
+
+
+# TECHNOLOGY 
+    PYTHON
+    Django
+    HTML5
+    CSS
+    Javascripts

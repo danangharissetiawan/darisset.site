@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features and customization &#8212; Blog Darisset 0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="features-and-customization">
+<h1>Features and customization<a class="headerlink" href="#features-and-customization" title="Permalink to this headline">¶</a></h1>
+<p>The django-analytical application sets up basic tracking without any
+further configuration.  This page describes extra features and ways in
+which behavior can be customized.</p>
+<div class="section" id="internal-ip-addresses">
+<span id="internal-ips"></span><h2>Internal IP addresses<a class="headerlink" href="#internal-ip-addresses" title="Permalink to this headline">¶</a></h2>
+<p>Visits by the website developers or internal users are usually not
+interesting.  The django-analytical will comment out the service
+initialization code if the client IP address is detected as one from the
+<a class="reference internal" href="settings.html#ANALYTICAL_INTERNAL_IPS" title="ANALYTICAL_INTERNAL_IPS"><code class="xref py py-data docutils literal notranslate"><span class="pre">ANALYTICAL_INTERNAL_IPS</span></code></a> setting.  The default value for this
+setting is <code class="xref py py-data docutils literal notranslate"><span class="pre">INTERNAL_IPS</span></code>.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ANALYTICAL_INTERNAL_IPS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;192.168.1.45&#39;</span><span class="p">,</span> <span class="s1">&#39;192.168.1.57&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The template tags can only access the visitor IP address if the
+HTTP request is present in the template context as the
+<code class="docutils literal notranslate"><span class="pre">request</span></code> variable.  For this reason, the
+<a class="reference internal" href="settings.html#ANALYTICAL_INTERNAL_IPS" title="ANALYTICAL_INTERNAL_IPS"><code class="xref py py-data docutils literal notranslate"><span class="pre">ANALYTICAL_INTERNAL_IPS</span></code></a> setting only works if you add this
+variable to the context yourself when you render the template, or
+you use the <code class="docutils literal notranslate"><span class="pre">RequestContext</span></code> and add
+<code class="docutils literal notranslate"><span class="pre">'django.core.context_processors.request'</span></code> to the list of
+context processors in the <code class="docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code>
+setting.</p>
+</div>
+</div>
+<div class="section" id="identifying-visitors">
+<span id="identifying-authenticated-users"></span><h2>Identifying authenticated users<a class="headerlink" href="#identifying-visitors" title="Permalink to this headline">¶</a></h2>
+<p>Some analytics services can track individual users.  If the visitor is
+logged in through the standard Django authentication system and the
+current user is accessible in the template context, the username can be
+passed to the analytics services that support identifying users.  This
+feature is configured by the <a class="reference internal" href="settings.html#ANALYTICAL_AUTO_IDENTIFY" title="ANALYTICAL_AUTO_IDENTIFY"><code class="xref py py-data docutils literal notranslate"><span class="pre">ANALYTICAL_AUTO_IDENTIFY</span></code></a> setting
+and is enabled by default.  To disable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ANALYTICAL_AUTO_IDENTIFY</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The template tags can only access the visitor username if the
+Django user is present in the template context either as the
+<code class="docutils literal notranslate"><span class="pre">user</span></code> variable, or as an attribute on the HTTP request in the
+<code class="docutils literal notranslate"><span class="pre">request</span></code> variable.  Use a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RequestContext</span></code> to render your
+templates and add
+<code class="docutils literal notranslate"><span class="pre">'django.contrib.auth.context_processors.auth'</span></code> or
+<code class="docutils literal notranslate"><span class="pre">'django.core.context_processors.request'</span></code> to the list of
+context processors in the <code class="xref py py-data docutils literal notranslate"><span class="pre">TEMPLATE_CONTEXT_PROCESSORS</span></code>
+setting.  (The first of these is added by default.)
+Alternatively, add one of the variables to the context yourself
+when you render the template.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Blog Darisset</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Danang Haris Setiawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/django-analytical/docs/features.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
