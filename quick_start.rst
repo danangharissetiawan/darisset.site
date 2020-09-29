@@ -76,7 +76,7 @@ Internationalization and Localization
 Settings
 ********
  
-The default language for this Project is **English**, and we use internatinalization to translate the text into Catalan.
+The default language for this Project is **English**, and we use internatinalization to translate the text into Indonesia.
  
 If you want to change the translation language, or include a new one, you just need to modify the **LANGUAGES** variable in the file *settings/base.py*. The language codes that define each language can be found |codes_link|.
  
@@ -120,7 +120,7 @@ where darisset is your project folder. You have to edit the file *django.po* and
 
 Once the translation is done, compile your messages with::
  
-    $ python manage.py compilemessages -l ca
+    $ python manage.py compilemessages -l id
  
  
  
@@ -149,5 +149,5 @@ A list of all the commands used to run this template::
 
     $ python manage.py runserver
  
-    $ python manage.py makemessages -l ca
-    $ python manage.py compilemessages -l ca
+    $ python manage.py makemessages -l id
+    $ python manage.py compilemessages -l id
