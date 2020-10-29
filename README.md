@@ -22,10 +22,10 @@ In addition, you can learn how to conceptualize this CMS **step by step** manual
 
 See documentation on [Darisset](https://darissetsite.readthedocs.io/en/latest/"target="_blank)
 
-To start using Darisset Blog CMS, see: doc: `requirement`
-and so on: doc: `quick_start`.
+To start using Darisset Blog CMS, see: doc: [`requirements`](/requirements.md)
+and so on: doc: [`quick_start`](/quick_start.md).
 
 ## Contents
 
-1.  [`requirements`](#requirements)
-2.  [`quick_start`](#quick_start)
+1.  [`requirements`](/requirements.md)
+2.  [`quick_start`](/quick_start.md)
