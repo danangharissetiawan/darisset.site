@@ -230,3 +230,7 @@ pip-selfcheck.json
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+_build/
+_build/*
+_build
+.htaccess

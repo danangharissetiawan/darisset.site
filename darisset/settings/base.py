@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 # DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'help.localhost', '192.168.43.153']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'help.localhost', '192.168.200.105']
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = []
 
