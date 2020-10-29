@@ -7,7 +7,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ImproperlyConfigured
 
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -289,7 +288,7 @@ HITCOUNT_EXCLUDE_USER_GROUP = ('penulis',)
 HITCOUNT_KEEP_HIT_IN_DATABASE = {'days': 30}
 
 
-#reCaptcha
+# reCaptcha
 GOOGLE_RECAPTCHA_SECRET_KEY = config('RECAPTCHA')
 
 # Robots
