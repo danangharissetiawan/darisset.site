@@ -10,22 +10,11 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-
-# def get_env_variable(var_name):
-#     try:
-#         return os.environ[var_name]
-#     except KeyError:
-#         error_msg = "Set the %s environment variable" % var_name
-#         raise ImproperlyConfigured(error_msg)
-
-
 SECRET_KEY = config('SECRET_KEY')
 
 
 # DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'help.localhost', '192.168.200.105']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost',  '192.168.200.106']
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = []
 
@@ -111,18 +100,12 @@ SITE_ID = 1
 WSGI_APPLICATION = 'darisset.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -139,9 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en'
 
@@ -173,9 +153,6 @@ now_naive = datetime.datetime.now()
 now_aware = datetime.datetime.utcnow().replace(tzinfo=utc)
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -184,13 +161,13 @@ STATICFILES_DIRS = (
 
 
 # Dropbox
-#DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-#DROPBOX_OAUTH2_TOKEN = 'yRUcUf2MFtEAAAAAAAAAAeDFkkbTDFD9Dk97AtHK2CvllwycrpOhoZ1Pzvi_DmuG'
-#DROPBOX_ROOT_PATH = '/media/'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN")
+DROPBOX_ROOT_PATH = '/media/'
 
 # Media
-MEDIA_URL = "/media/"
-#MEDIA_URL = DROPBOX_ROOT_PATH
+# MEDIA_URL = "/media/"
+MEDIA_URL = DROPBOX_ROOT_PATH
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -312,4 +289,4 @@ SEO_HTML_ADMIN_WIDGET = {
     'widget_path': 'ckeditor.widgets.CKEditorWidget'
 }
 
-GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-162553650-2'
+GOOGLE_ANALYTICS_PROPERTY_ID = config("GOOGLE_ANALYTICS_PROPERTY_ID")

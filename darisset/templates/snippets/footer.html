@@ -5,7 +5,7 @@
       <!-- Call to action -->
       <div class="site-section subscribe bg-white">
         <div class="container">
-          <form enctype="multipart/form-data" method="post" action="{% url 'newsletter_subscribe_request' 'darisset' %}" class="row align-items-center">
+          <form enctype="multipart/form-data" method="post" action="{% url 'newsletter_subscribe_request' 'darisset' %}" class="row align-items-center">{% csrf_token %}
             <div class="col-md-5 mr-auto">
               <h2>{% trans "Newsletter Subcribe" %}</h2>
               <p>{% blocktrans %}Big ideas have the power to change perceptions to create value that didn't exist before. And, in keeping with all good daily quotes, this quotations page will be short and sweet. Okay, let's get ready for our daily intake <b class="text-black">Decide and welcome your happiness!..</b>{% endblocktrans %}</p>
@@ -13,7 +13,7 @@
             <div class="col-md-6 ml-auto">
               <div class="d-flex">
                 
-                  {% csrf_token %}
+                  
                   <input type="email" name="email_field" required="" id="id_email_field" class="form-control" placeholder="{% trans "Enter your email" %}">
                   <button id="id_submit" name="submit" value="Subscribe" type="submit" class="btn btn-secondary"><span class="icon-paper-plane"></span></button>
                 
