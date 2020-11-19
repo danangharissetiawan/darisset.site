@@ -184,13 +184,13 @@ STATICFILES_DIRS = (
 
 
 # Dropbox
-# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# DROPBOX_OAUTH2_TOKEN = 'H3QiYWkxFRAAAAAAAAAAEtRRHY48lr9-IfW403AUA-3h6BMX-IKRNBAjNPpJrbQ7'
-# DROPBOX_ROOT_PATH = '/media/'
+#DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+#DROPBOX_OAUTH2_TOKEN = 'yRUcUf2MFtEAAAAAAAAAAeDFkkbTDFD9Dk97AtHK2CvllwycrpOhoZ1Pzvi_DmuG'
+#DROPBOX_ROOT_PATH = '/media/'
 
 # Media
 MEDIA_URL = "/media/"
-# MEDIA_URL = DROPBOX_ROOT_PATH
+#MEDIA_URL = DROPBOX_ROOT_PATH
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
