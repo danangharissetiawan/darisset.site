@@ -34,7 +34,7 @@ Pillow==7.1.1
 protobuf==3.6.1
 psycopg2==2.8.5
 pycodestyle==2.6.0
-Pygments==2.7.1
+Pygments==2.7.4
 pyparsing==2.4.7
 python-card-me==0.9.3
 python-dateutil==2.6.0
